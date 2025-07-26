@@ -1,49 +1,43 @@
-/* Definição de Variáveis de Cor (Tema Claro - Padrão) */
+/* Forçando o tema escuro e definindo as variáveis de cor */
 :root {
-    --bg-color: #f0f2f5;
-    --text-color: #333;
-    --heading-color: #1c1e21;
-    --card-bg-color: #ffffff;
-    --card-border-color: #ddd;
-    --footer-text-color: #65676b;
-    --link-color: #050505;
+    /* Cores do Tema Escuro (Padrão) */
+    --bg-color: #121212;
+    --text-color: #e4e6eb;
+    --heading-color: #e4e6eb;
+    --card-bg-color: #1e1e1e;
+    --card-border-color: #3a3b3c;
+    --footer-text-color: #b0b3b8;
+    --link-color: #e4e6eb;
 
-    --status-sim-bg: #e7f3ff;
-    --status-sim-text: #1877f2;
-    --status-sim-highlight: #005ce6;
-    --status-nao-bg: #ffebe8;
-    --status-nao-text: #d93025;
-    --status-nao-highlight: #b32424;
+    /* Cores Invertidas: Verde para seguro (recolhido), Vermelho para perigo (na rua) */
+    --status-recolhido-bg: #2a4a3a;
+    --status-recolhido-text: #8ee09f;
+    --status-narua-bg: #4a2c2c;
+    --status-narua-text: #ff9a94;
+    
+    --profile-bg: #242526;
+    --profile-text: #adb5bd;
+    --profile-title-text: #dee2e6;
+    --whatsapp-color: #25D366;
+    --telegram-color: #2a9ed8;
+    --twitter-x-color: #14171A; /* Cor escura para o X */
+    --facebook-color: #1877F2; /* Cor oficial do Facebook */
 
-    --profile-bg: #e9ecef;
-    --profile-text: #495057;
-    --profile-title-text: #000;
+    /* Variáveis para formulário de denúncias (Tema Escuro) */
+    --form-bg-color: #1e1e1e;
+    --form-border-color: #3a3b3c;
+    --input-bg-color: #2c2c2c;
+    --input-text-color: #e4e6eb;
+    --input-border-color: #555;
+    --button-primary-bg: #2a9ed8; /* Cor do Telegram */
+    --button-primary-hover-bg: #227ca7;
+    --button-cancel-bg: #6c757d; /* Cinza mais neutro */
+    --button-cancel-hover-bg: #5a6268;
+    --success-message-color: #8ee09f;
+    --error-message-color: #ff9a94;
 }
 
-/* Definição de Variáveis de Cor (Tema Escuro) */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #121212;
-        --text-color: #e4e6eb;
-        --heading-color: #e4e6eb;
-        --card-bg-color: #1e1e1e;
-        --card-border-color: #3a3b3c;
-        --footer-text-color: #b0b3b8;
-        --link-color: #e4e6eb;
-
-        --status-sim-bg: #293a54;
-        --status-sim-text: #8ec3ff;
-        --status-sim-highlight: #b3d9ff;
-        --status-nao-bg: #4a2c2c;
-        --status-nao-text: #ff9a94;
-        --status-nao-highlight: #ffbcaf;
-        
-        --profile-bg: #212529;
-        --profile-text: #adb5bd;
-        --profile-title-text: #dee2e6;
-    }
-}
-
+/* Estilos gerais */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -54,196 +48,684 @@ body {
     min-height: 100vh;
     margin: 0;
     text-align: center;
-    padding: 20px;
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transição suave na troca de tema */
 }
 
-.container {
+main.container, .features-container {
     max-width: 600px;
     width: 100%;
-    margin: auto 0;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
-h1 {
-    font-size: 2rem;
+/* Utilitário para ocultar/exibir seções */
+.hidden {
+    display: none !important;
+}
+
+/* --- CABEÇALHO --- */
+.site-header {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border-color);
+}
+
+.header-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.header-link:active {
+    transform: scale(0.98);
+}
+
+.site-title {
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
     color: var(--heading-color);
-    line-height: 1.3;
+    margin: 0;
+    letter-spacing: -0.5px;
 }
 
+.live-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #ff5252;
+    border-radius: 50%;
+    animation: pulse-red 2s infinite;
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+}
+
+@keyframes pulse-red {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 82, 82, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); }
+}
+
+/* --- CONTAINER DE STATUS --- */
 #status-container {
-    margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 16px;
-    transition: background-color 0.3s ease, color 0.3s ease;
     border: 1px solid var(--card-border-color);
+    margin-bottom: 1.5rem;
+    transition: background-color 0.5s ease;
 }
 
 #permanent-status {
-    font-size: 4rem;
-    font-weight: 900;
-    line-height: 1;
+    font-size: 1.5rem;
+    font-weight: 700;
     text-transform: uppercase;
-    color: var(--status-nao-text);
-    border-bottom: 2px solid var(--card-border-color);
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--card-border-color);
     padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    transition: color 0.5s ease, border-color 0.5s ease;
 }
 
 #temporary-status {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3.5rem;
+    font-weight: 900;
     text-transform: uppercase;
+    line-height: 1.1;
+    padding-top: 1rem;
+    transition: color 0.5s ease;
 }
 
-#countdown-container {
+/* Cores do container baseadas no status */
+#status-container.recolhido {
+    background-color: var(--status-recolhido-bg);
+}
+#status-container.recolhido #temporary-status {
+    color: var(--status-recolhido-text);
+}
+
+#status-container.na-rua {
+    background-color: var(--status-narua-bg);
+}
+#status-container.na-rua #temporary-status {
+    color: var(--status-narua-text);
+}
+
+#countdown-container { margin-top: 1.5rem; }
+.info-text { font-size: 1rem; margin: .5rem 0; opacity: 0.9; }
+.countdown-label { margin-top: 1rem; font-size: .8rem; opacity: .7; text-transform: uppercase; }
+.countdown-timer { font-size: 2.5rem; font-weight: 700; letter-spacing: 1px; }
+
+/* --- SEÇÃO DE ANÁLISE PSICOLÓGICA --- */
+#profile-container{
+    background-color:var(--profile-bg);
+    border:1px solid var(--card-border-color);
+    border-radius:8px;
+    padding:1rem;
+    margin-bottom:1.5rem;
+    font-family: 'Roboto Mono', monospace;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+.profile-title{
+    color:var(--profile-title-text);
+    font-weight:700;
+    text-align:left;
+    margin-bottom:.8rem;
+    font-size:.9rem;
+    transition: color 0.5s ease;
+}
+#profile-text{
+    color:var(--profile-text);
+    font-size:1rem;
+    min-height:24px;
+    transition:opacity .4s ease-in-out, color 0.5s ease;
+}
+#profile-text.fade-out{opacity:0}
+
+/* --- NOVO CAMPO DE ACESSOS --- */
+#access-counter-container {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--card-border-color);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.access-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    transition: color 0.5s ease;
+}
+
+.access-count {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--status-narua-text); /* Cor de destaque para o contador */
+    line-height: 1;
+}
+
+.access-description {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+/* --- SEÇÃO DE COMPARTILHAMENTO OTIMIZADA --- */
+#share-container {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--card-border-color);
+    text-align: center;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.share-heading {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    transition: color 0.5s ease;
+}
+
+.share-subheading {
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* NOVO: Wrapper para os botões */
+.share-buttons-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Para quebrar a linha em telas pequenas */
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Estilo Base para botões de compartilhamento */
+#whatsapp-share-button-main, #twitter-share-button, #facebook-share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    padding: .8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: transform .2s ease;
+    animation: pulse 2.5s infinite;
+    flex-grow: 1; /* Para ocupar espaço disponível */
+    flex-basis: 200px; /* Base de largura */
+    justify-content: center;
+}
+
+#whatsapp-share-button-main:hover, #twitter-share-button:hover, #facebook-share-button:hover {
+    transform: scale(1.05);
+    animation-play-state: paused;
+}
+
+#whatsapp-share-button-main svg, #twitter-share-button svg, #facebook-share-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Cores específicas dos botões */
+#whatsapp-share-button-main {
+    background-color: var(--whatsapp-color);
+}
+#twitter-share-button {
+    background-color: var(--twitter-x-color);
+    border: 1px solid #555; /* Borda para destacar no fundo escuro */
+}
+#facebook-share-button { /* Estilo para o botão do Facebook */
+    background-color: var(--facebook-color);
+}
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+/* --- SEÇÃO DO TELEGRAM OTIMIZADA --- */
+.cta-container{
+    background-color:var(--card-bg-color);
+    padding:2rem;
+    border-radius:12px;
+    border:1px solid var(--card-border-color);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+.cta-container h2{
+    margin:0 0 .5rem 0;
+    font-size:1.8rem;
+    color:var(--heading-color);
+    transition: color 0.5s ease;
+}
+.cta-container p{
+    margin:0 0 1.5rem 0;
+    font-size:1.1rem;
+    opacity:.9; 
+    max-width: 450px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+.cta-button{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:1rem 2rem;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:1.1rem;
+    background-color:var(--telegram-color);
+    color:#fff;
+    transition:transform .2s ease,box-shadow .2s ease
+}
+.cta-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 4px 15px rgba(0,136,204,.4)
+}
+
+/* --- SEÇÃO DE FUNCIONALIDADES --- */
+.features-section{
+    width:100%;
+    padding:3rem 0;
+    background-color:var(--bg-color);
+    border-top:1px solid var(--card-border-color);
+    margin-top:2rem;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+.features-section h2{
+    font-size:2rem;
+    margin:0 0 2rem 0;
+    color:var(--heading-color);
+    transition: color 0.5s ease;
+}
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1.5rem;
+    margin:0 auto
+}
+.feature-card{
+    background-color:var(--card-bg-color);
+    padding:1.5rem;
+    border-radius:12px;
+    text-align:left;
+    border:1px solid var(--card-border-color);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+.feature-card h3{
+    margin:0 0 .5rem 0;
+    font-size:1.2rem;
+    color:var(--heading-color);
+    transition: color 0.5s ease;
+}
+.feature-card p{
+    margin:0;
+    font-size:1rem;
+    line-height:1.6;
+    opacity:.9;
+    transition: color 0.5s ease;
+}
+.feature-card p a { /* Estilo do link dentro do parágrafo */
+    color: var(--link-color);
+    text-decoration: underline;
+    transition: color 0.5s ease;
+}
+.feature-card p a:hover {
+    color: var(--button-primary-bg); /* Ou outra cor de hover apropriada */
+}
+
+/* --- Estilos para a seção de Denúncias --- */
+#complaint-form-container, #complaint-list-container {
+    background-color: var(--form-bg-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--form-border-color);
+    text-align: center;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.complaint-heading {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    transition: color 0.5s ease;
+}
+
+.complaint-subheading {
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.complaint-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     margin-top: 1.5rem;
 }
 
-.info-text {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
+.form-group {
+    text-align: left;
 }
 
-.release-time {
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: color 0.5s ease;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: calc(100% - 20px); /* Ajusta para padding */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
     font-size: 1rem;
-    opacity: 0.9;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
 
-.countdown-label {
-    margin-top: 1.2rem;
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--button-primary-bg);
+    box-shadow: 0 0 0 3px rgba(42, 158, 216, 0.3); /* Um leve brilho azul */
+}
+
+.submit-complaint-button,
+.cancel-complaint-button,
+.back-to-main-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    color: #fff;
+    border: none;
+    margin-top: 1rem; /* Espaço entre os botões */
+}
+
+.submit-complaint-button {
+    background-color: var(--button-primary-bg);
+}
+
+.submit-complaint-button:hover {
+    background-color: var(--button-primary-hover-bg);
+    transform: translateY(-2px);
+}
+
+.cancel-complaint-button,
+.back-to-main-button {
+    background-color: var(--button-cancel-bg);
+}
+
+.cancel-complaint-button:hover,
+.back-to-main-button:hover {
+    background-color: var(--button-cancel-hover-bg);
+    transform: translateY(-2px);
+}
+
+.complaint-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.complaint-message.success {
+    background-color: var(--status-recolhido-bg);
+    color: var(--success-message-color);
+}
+
+.complaint-message.error {
+    background-color: var(--status-narua-bg);
+    color: var(--error-message-color);
+}
+
+/* Estilos para a lista de denúncias */
+.complaints-display {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    text-align: left; /* Alinha o texto das denúncias à esquerda */
+}
+
+.complaint-card {
+    background-color: var(--input-bg-color); /* Um pouco mais escuro que o container */
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--input-border-color);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.complaint-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--heading-color);
+    font-size: 1.1rem;
+    transition: color 0.5s ease;
+}
+
+.complaint-card p {
+    margin: 0.3rem 0;
     font-size: 0.9rem;
     opacity: 0.8;
-    text-transform: uppercase;
+    transition: color 0.5s ease;
 }
 
-.countdown-timer {
-    font-size: 2rem;
-    font-weight: 700;
+/* --- RODAPÉ --- */
+.site-footer{
+    width:100%;
+    padding:1.5rem 20px;
+    color:var(--footer-text-color);
+    font-size:.9rem;
+    transition: color 0.5s ease;
+}
+.site-footer a{
+    color:var(--link-color);
+    text-decoration:none;
+    font-weight:700;
+    transition: color 0.5s ease;
+}
+.site-footer a:hover{
+    text-decoration:underline
 }
 
-.pode-sair {
-    background-color: var(--status-sim-bg);
-    color: var(--status-sim-text);
-}
-
-.pode-sair #temporary-status {
-    color: var(--status-sim-highlight);
-}
-
-.nao-pode-sair {
-    background-color: var(--status-nao-bg);
-    color: var(--status-nao-text);
-}
-
-.nao-pode-sair #temporary-status {
-    color: var(--status-nao-highlight);
-}
-
-#profile-container {
-    background-color: var(--profile-bg);
-    border: 1px solid var(--card-border-color);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    font-family: 'Roboto Mono', monospace;
-}
-
-.profile-title {
-    color: var(--profile-title-text);
-    font-weight: 700;
-    text-align: left;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
-}
-
-#profile-text {
-    color: var(--profile-text);
-    font-size: 1rem;
-    min-height: 24px;
-    transition: opacity 0.4s ease-in-out;
-}
-
-#profile-text.fade-out {
-    opacity: 0;
-}
-
-details {
-    cursor: pointer;
-    background-color: var(--card-bg-color);
-    border: 1px solid var(--card-border-color);
-    border-radius: 8px;
-    padding: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-summary {
-    font-weight: 700;
-    outline: none;
-}
-
-.details-content {
-    margin-top: 1rem;
-    text-align: left;
-    font-size: 0.95rem;
-}
-
-.details-content ul {
-    padding-left: 20px;
-    margin: 0;
-}
-
-.details-content li {
-    margin-bottom: 0.8rem;
-}
-
-footer {
-    width: 100%;
-    margin-top: auto;
-    padding-top: 2rem;
-    color: var(--footer-text-color);
-    font-size: 0.9rem;
-}
-
-footer a {
-    color: var(--link-color);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
+/* --- BOTÃO DE ÁUDIO --- */
 #audio-control-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
     width: 50px;
     height: 50px;
-    background-color: var(--card-bg-color);
-    color: var(--text-color);
-    border: 2px solid var(--card-border-color);
+    bottom: 20px;
+    right: 20px;
     border-radius: 50%;
-    font-size: 1.5rem;
+    border: none;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s ease, background-color 0.3s ease;
+    transition: transform .2s ease, box-shadow .2s ease;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background-color: #333; /* Mantido fixo para contraste */
+    color: #fff; /* Mantido fixo para contraste */
+    font-size: 1.5rem;
 }
-
 #audio-control-button:hover {
     transform: scale(1.1);
 }
 
-/* --- Media Query para Responsividade --- */
+/* --- MEDIA QUERY PARA MODO CLARO --- */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: #f0f2f5; /* Fundo mais claro */
+        --text-color: #1c1e21; /* Texto mais escuro */
+        --heading-color: #050505; /* Títulos quase pretos */
+        --card-bg-color: #ffffff; /* Cartões brancos */
+        --card-border-color: #dadde1; /* Borda mais clara */
+        --footer-text-color: #65676b; /* Texto do rodapé mais escuro */
+        --link-color: #007bff; /* Links azuis padrão */
+
+        /* Cores de status - ajustar para fundos claros */
+        --status-recolhido-bg: #d4edda; /* Verde claro */
+        --status-recolhido-text: #155724; /* Verde escuro */
+        --status-narua-bg: #f8d7da; /* Vermelho claro */
+        --status-narua-text: #721c24; /* Vermelho escuro */
+        
+        --profile-bg: #e4e6eb; /* Fundo de perfil mais claro */
+        --profile-text: #4b4f56; /* Texto de perfil mais escuro */
+        --profile-title-text: #363a3f; /* Título de perfil mais escuro */
+        
+        /* Cores de marca (WhatsApp, Telegram, X, Facebook) - mantidas para consistência visual da marca */
+        --whatsapp-color: #25D366;
+        --telegram-color: #2a9ed8;
+        --twitter-x-color: #14171A; 
+        --facebook-color: #1877F2;
+
+        /* Variáveis para formulário de denúncias (Tema Claro) */
+        --form-bg-color: #ffffff;
+        --form-border-color: #dadde1;
+        --input-bg-color: #f8f9fa;
+        --input-text-color: #212529;
+        --input-border-color: #ced4da;
+        --button-primary-bg: #007bff; /* Azul padrão */
+        --button-primary-hover-bg: #0056b3;
+        --button-cancel-bg: #6c757d;
+        --button-cancel-hover-bg: #5a6268;
+        --success-message-color: #28a745;
+        --error-message-color: #dc3545;
+    }
+
+    /* Ajustes específicos para elementos em modo claro, se necessário */
+    /* Ex: a borda do botão do Twitter/X pode precisar de um ajuste se ficar invisível */
+    #twitter-share-button {
+        border: 1px solid #ced4da; /* Borda mais visível em modo claro */
+        color: var(--text-color); /* Texto escuro para o botão do Twitter/X em fundo claro */
+        background-color: #f0f2f5; /* Fundo claro para o botão */
+    }
+    #twitter-share-button svg {
+        fill: var(--text-color); /* Ícone escuro para o botão do Twitter/X */
+    }
+}
+
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
 @media (max-width: 600px) {
-    h1 { font-size: 1.5rem; }
-    #permanent-status { font-size: 3rem; }
-    #temporary-status { font-size: 2rem; }
-    .countdown-timer { font-size: 1.5rem; }
+    main.container, .features-container {
+        padding: 15px; /* Reduz o padding geral em telas menores */
+    }
+    .site-title {
+        font-size: 1.2rem; /* Ajusta o tamanho do título do site */
+    }
+    #status-container {
+        padding: 1.5rem; /* Reduz o padding do container de status */
+    }
+    #permanent-status {
+        font-size: 1.2rem;
+    }
+    #temporary-status {
+        font-size: 2.8rem;
+    }
+    .countdown-timer {
+        font-size: 2rem; /* Reduz o tamanho da fonte do contador */
+    }
+    .share-heading {
+        font-size: 1.3rem; /* Ajusta o título da seção de compartilhamento */
+    }
+    .share-subheading {
+        font-size: 0.9rem; /* Ajusta o subtítulo da seção de compartilhamento */
+    }
+    #whatsapp-share-button-main, #twitter-share-button, #facebook-share-button {
+        padding: 0.7rem 1.2rem; /* Ajusta o padding do botão do WhatsApp */
+        font-size: 0.9rem;
+        flex-basis: 100%; /* Faz cada botão ocupar a largura total */
+    }
+    .cta-container h2 {
+        font-size: 1.5rem; /* Ajusta o título da CTA do Telegram */
+    }
+    .cta-container p {
+        font-size: 1rem; /* Ajusta o parágrafo da CTA do Telegram */
+    }
+    .cta-button {
+        padding: 0.8rem 1.5rem; /* Ajusta o padding do botão do Telegram */
+        font-size: 1rem;
+    }
+    .features-section h2 {
+        font-size: 1.8rem; /* Ajusta o título da seção de funcionalidades */
+    }
+    .feature-card h3 {
+        font-size: 1.1rem; /* Ajusta o título do card de funcionalidade */
+    }
+    .feature-card p {
+        font-size: 0.9rem; /* Ajusta o parágrafo do card de funcionalidade */
+    }
+    #access-counter-container {
+        padding: 1rem; /* Ajusta o padding do novo campo de acessos */
+    }
+    .access-count {
+        font-size: 2.5rem; /* Ajusta o tamanho da fonte do contador de acessos */
+    }
+    /* Denúncia */
+    .complaint-heading {
+        font-size: 1.5rem;
+    }
+    .complaint-subheading {
+        font-size: 0.9rem;
+    }
+    .submit-complaint-button,
+    .cancel-complaint-button,
+    .back-to-main-button {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #temporary-status {
+        font-size: 2.2rem; /* Reduz ainda mais para telas muito pequenas */
+    }
+    .countdown-timer {
+        font-size: 1.8rem; /* Reduz ainda mais para telas muito pequenas */
+    }
+    .access-count {
+        font-size: 2rem; /* Reduz ainda mais o contador de acessos */
+    }
 }
