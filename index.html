@@ -2,24 +2,29 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Status do Bolsonaro: Monitoramento em Tempo Real | Inelegibilidade e Denúncias</title>
+    <title>Status do Bolsonaro: PRESO EM CASA | Monitoramento da Prisão Domiciliar</title>
     
-    <meta name="description" content="Acompanhe o status de Bolsonaro em tempo real, incluindo sua inelegibilidade, análises psicológicas e um canal direto para denúncias. Monitore a política brasileira de perto!">
+    <meta name="description" content="Bolsonaro está em prisão domiciliar. Acompanhe o status do ex-presidente em tempo real, entenda os crimes, as condições da prisão e ajude a fiscalizar.">
     
-    <meta property="og:title" content="Status do Bolsonaro: Monitoramento em Tempo Real | Inelegibilidade e Denúncias">
-    <meta property="og:description" content="Acompanhe o status de Bolsonaro em tempo real, incluindo sua inelegibilidade, análises psicológicas e um canal direto para denúncias. Monitore a política brasileira de perto!">
+    <meta property="og:title" content="Status do Bolsonaro: PRESO EM CASA | Monitoramento da Prisão Domiciliar">
+    <meta property="og:description" content="Bolsonaro está em prisão domiciliar. Acompanhe o status do ex-presidente em tempo real, entenda os crimes, as condições da prisão e ajude a fiscalizar.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.seusite.com.br"> <meta property="og:image" content="https://www.seusite.com.br/media/capa.jpg"> <meta property="og:image:alt" content="Capa do site Status do Bolsonaro, com elementos visuais de monitoramento.">
+    <meta property="og:url" content="https://www.seusite.com.br">
+    <meta property="og:image" content="https://www.seusite.com.br/media/capa.jpg">
+    <meta property="og:image:alt" content="Capa do site Status do Bolsonaro, com elementos visuais de monitoramento da prisão domiciliar.">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@seuarrobadotwitter"> <meta name="twitter:creator" content="@seuarrobadotwitter"> <meta name="twitter:title" content="Status do Bolsonaro: Monitoramento em Tempo Real | Inelegibilidade e Denúncias">
-    <meta name="twitter:description" content="Acompanhe o status de Bolsonaro em tempo real, incluindo sua inelegibilidade, análises psicológicas e um canal direto para denúncias. Monitore a política brasileira de perto!">
-    <meta name="twitter:image" content="https://www.seusite.com.br/media/capa.jpg"> <meta name="keywords" content="Bolsonaro, status Bolsonaro, inelegível, inelegibilidade, monitoramento, política, denúncias, Brasil, democracia, fiscalização, tempo real, análises, eleições">
+    <meta name="twitter:site" content="@seuarrobadotwitter">
+    <meta name="twitter:creator" content="@seuarrobadotwitter">
+    <meta name="twitter:title" content="Status do Bolsonaro: PRESO EM CASA | Monitoramento da Prisão Domiciliar">
+    <meta name="twitter:description" content="Bolsonaro está em prisão domiciliar. Acompanhe o status do ex-presidente em tempo real, entenda os crimes e as condições da prisão.">
+    <meta name="twitter:image" content="https://www.seusite.com.br/media/capa.jpg">
+    <meta name="keywords" content="Bolsonaro, status Bolsonaro, preso, prisão domiciliar, inelegível, monitoramento, política, denúncias, Brasil, democracia, stf, moraes, ap 2668, golpe de estado">
 
     <link rel="icon" href="data:," sizes="any">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
@@ -34,7 +39,7 @@
         </header>
         
         <div id="status-container">
-            <div id="permanent-status">Inelegível</div>
+            <div id="permanent-status">PRISÃO DOMICILIAR</div>
             <div id="temporary-status">--</div>
             <div id="countdown-container"></div>
         </div>
@@ -48,35 +53,34 @@
             <div class="access-title">🔥 Fiscais Ativos Agora</div>
             <div class="access-count" id="access-counter">...</div>
             <div class="access-description">
-                Brasileiros vigilantes monitorando em tempo real. 
+                Brasileiros vigilantes monitorando o detento em tempo real. 
                 <span id="recent-joins">+<span id="recent-count">0</span> se juntaram nos últimos 5 minutos!</span>
             </div>
         </div>
 
         <div id="complaint-form-container" class="hidden">
-            <h2 class="complaint-heading">📣 Denunciar Bolsonaro</h2>
+            <h2 class="complaint-heading">📣 Denunciar Violação</h2>
             <p class="complaint-subheading">
-                Use este formulário para registrar denúncias sobre irregularidades, declarações ou ações do inelegível. Sua contribuição é fundamental para a vigilância!
+                Use este formulário para registrar denúncias sobre violações da prisão domiciliar. Sua contribuição é fundamental para a vigilância!
             </p>
             <form id="complaint-form" class="complaint-form">
                 <div class="form-group">
-                    <label for="descricao_denuncia">Descrição Detalhada do Ocorrido (Obrigatório):</label>
-                    <textarea id="descricao_denuncia" required rows="5" placeholder="Ex: 'Ele foi visto descumprindo a medida cautelar ao...'" maxlength="1000"></textarea>
+                    <label for="descricao_denuncia">Descrição Detalhada da Violação (Obrigatório):</label>
+                    <textarea id="descricao_denuncia" required rows="5" placeholder="Ex: 'Ele recebeu uma visita não autorizada do indivíduo X...'" maxlength="1000"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="tipo_crime">Tipo de Crime:</label>
+                    <label for="tipo_crime">Tipo de Violação:</label>
                     <select id="tipo_crime">
+                        <option value="Violacao de Cautelar">Violação de Medida Cautelar</option>
+                        <option value="Visita Nao Autorizada">Recebimento de Visita Não Autorizada</option>
+                        <option value="Uso de Redes Sociais">Uso de Redes Sociais (própria ou terceiros)</option>
+                        <option value="Comunicacao Indevida">Comunicação Indevida com outros investigados</option>
                         <option value="Outros">Outros</option>
-                        <option value="Corrupção">Corrupção</option>
-                        <option value="Ameaça">Ameaça</option>
-                        <option value="Violência">Violência</option>
-                        <option value="Discurso de ódio">Discurso de ódio</option>
-                        <option value="Desinformação">Desinformação</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="local_ocorrencia">Local da Ocorrência (Opcional):</label>
-                    <input type="text" id="local_ocorrencia" placeholder="Ex: Brasília-DF, Redes sociais, Evento X" maxlength="255">
+                    <input type="text" id="local_ocorrencia" placeholder="Ex: Endereço residencial em Brasília" maxlength="255">
                 </div>
                 <div class="form-group">
                     <label for="data_ocorrencia">Data da Ocorrência (DD/MM/AAAA - Opcional):</label>
@@ -84,7 +88,7 @@
                 </div>
                 <div class="form-group">
                     <label for="link_provas">Link para Provas/Evidências (Opcional):</label>
-                    <input type="url" id="link_provas" placeholder="Ex: https://youtube.com/link-do-video">
+                    <input type="url" id="link_provas" placeholder="Ex: Link de vídeo, foto ou matéria">
                 </div>
                 <button type="submit" class="submit-complaint-button">REGISTRAR DENÚNCIA</button>
                 <button type="button" class="cancel-complaint-button">CANCELAR</button>
@@ -95,24 +99,16 @@
         <div id="complaint-list-container" class="hidden">
             <h2 class="complaint-heading">📂 Denúncias Registradas</h2>
             <p class="complaint-subheading">
-                Aqui você veria as denúncias mais recentes enviadas pela comunidade. Para ver as denúncias em tempo real e de forma interativa, utilize a funcionalidade "📂 Ver Denúncias" no nosso bot do Telegram. Esta seção no site é apenas uma demonstração visual, e requer uma integração de backend para exibir os dados reais do banco de dados.
+                 Esta seção no site é uma demonstração. Para ver denúncias em tempo real e de forma interativa, utilize a funcionalidade "📂 Ver Denúncias" no nosso bot do Telegram, onde a comunidade se mantém ativa.
             </p>
             <div id="complaints-display" class="complaints-display">
-                <div class="complaint-card">
+                 <div class="complaint-card">
                     <h3>Denúncia Simulada 1</h3>
-                    <p>Descrição: Indivíduo com chapéu de 'mito' visto em local público, causando aglomeração e desrespeitando o uso de tornozeleira.</p>
-                    <p>Tipo: Descumprimento de Medida Cautelar</p>
-                    <p>Local: Rua das Palmeiras, 123 - RJ</p>
-                    <p>Data: 20/07/2025</p>
-                    <p>Enviado por: Usuário Anônimo</p>
-                </div>
-                <div class="complaint-card">
-                    <h3>Denúncia Simulada 2</h3>
-                    <p>Descrição: Postagem em rede social com conteúdo de desinformação sobre vacinas.</p>
-                    <p>Tipo: Desinformação</p>
-                    <p>Local: Twitter/X</p>
-                    <p>Data: 18/07/2025</p>
-                    <p>Enviado por: Cidadão Vigilante</p>
+                    <p>Descrição: Indivíduo não identificado pulou o muro da residência durante a madrugada.</p>
+                    <p>Tipo: Recebimento de Visita Não Autorizada</p>
+                    <p>Local: Brasília-DF</p>
+                    <p>Data: 04/08/2025</p>
+                    <p>Enviado por: Vizinho Vigilante</p>
                 </div>
             </div>
             <button type="button" class="back-to-main-button">VOLTAR AO INÍCIO</button>
@@ -120,10 +116,9 @@
 
 
         <div id="share-container">
-            <h2 class="share-heading">🚨 A vigilância não pode parar!</h2>
+            <h2 class="share-heading">🚨 A casa caiu. A vigilância continua!</h2>
             <p class="share-subheading">
-                Cada compartilhamento fortalece nossa rede de fiscalização. 
-                Quanto mais gente souber, mais segura fica a democracia.
+                Ele está preso, mas a ameaça à democracia não tira férias. Cada compartilhamento fortalece nossa rede de fiscalização.
             </p>
             <div class="share-buttons-wrapper">
                 <a id="whatsapp-share-button-main" href="#" target="_blank">
@@ -143,14 +138,14 @@
         
         <div class="cta-container">
             <h2>⚡ Quer poder de verdade?</h2>
-            <p>O site é só o começo. Fiscais sérios usam o bot no Telegram para receber alertas instantâneos, acessar funções exclusivas e participar da elite da vigilância. A ferramenta completa está lá.</p>
+            <p>O site é só o começo. Fiscais sérios usam o bot no Telegram para receber alertas, acessar funções exclusivas e participar da elite da vigilância. A ferramenta completa está lá.</p>
             <a href="https://t.me/statusdobolsonaro_bot" class="cta-button" target="_blank" rel="noopener noreferrer">
                 🎯 ENTRAR PARA A ELITE DA VIGILÂNCIA
             </a>
         </div>
     </main>
 
-    <section class="features-section">
+      <section class="features-section">
         <div class="features-container">
             <h2>Funcionalidades Exclusivas do Bot</h2>
             <div class="features-grid">
