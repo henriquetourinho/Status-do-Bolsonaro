@@ -1,7 +1,7 @@
 /* ============================================================
-   BRUTALIST POP — AMARELO NEON / PINK / VERDE / PRETO
-   Inspirado em Dev Chronicle — cores saturadas, tipografia
-   bold display, bordas grossas, sombras duras
+   STATUS DOS BOLSONAROS — BRUTALIST POP DESIGN SYSTEM
+   Cores saturadas, tipografia display bold, bordas grossas (3px),
+   sombras secas (hard shadows) e estética de choque visual.
 ============================================================ */
 :root {
     --black: #0a0a0a;
@@ -11,7 +11,10 @@
     --green: #00e676;
     --blue: #5b5fff;
     --orange: #ff6b00;
+    --red: #ff1744;
+    --cyan: #00e5ff;
     --shadow: 4px 4px 0px var(--black);
+    --shadow-lg: 7px 7px 0px var(--black);
     --border: 3px solid var(--black);
     --font-d: 'Anton', Impact, sans-serif;
     --font-m: 'Space Mono', monospace;
@@ -38,7 +41,7 @@ body {
 }
 
 /* ============================================================
-   STORY OVERLAY — estilo TikTok / Instagram
+   STORY OVERLAY — ESTILO TIKTOK / INSTAGRAM STORIES
 ============================================================ */
 #story-overlay {
     position: fixed;
@@ -60,14 +63,12 @@ body {
         transform: translateY(0);
         opacity: 1;
     }
-
     to {
         transform: translateY(-100vh);
         opacity: 0;
     }
 }
 
-/* SLIDES */
 .story-slide {
     position: absolute;
     inset: 0;
@@ -75,7 +76,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4rem 1.5rem 5rem;
+    padding: 4.5rem 1.5rem 5.5rem;
     opacity: 0;
     pointer-events: none;
     transition: opacity .25s ease;
@@ -86,7 +87,6 @@ body {
     pointer-events: auto;
 }
 
-/* BARRA DE PROGRESSO */
 .story-progress {
     position: absolute;
     top: env(safe-area-inset-top, 12px);
@@ -100,7 +100,7 @@ body {
 
 .sp-bar {
     flex: 1;
-    height: 3px;
+    height: 4px;
     background: rgba(255, 255, 255, .3);
     border-radius: 2px;
     overflow: hidden;
@@ -122,7 +122,6 @@ body {
     width: 0%;
 }
 
-/* HANDLE TOPO */
 .story-handle {
     position: absolute;
     top: calc(env(safe-area-inset-top, 12px) + 24px);
@@ -137,21 +136,20 @@ body {
 
 .story-account {
     font-family: var(--font-m);
-    font-size: .7rem;
+    font-size: .75rem;
     color: #fff;
     font-weight: 700;
     letter-spacing: .05em;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
 }
 
 .story-time {
     font-family: var(--font-m);
     font-size: .65rem;
-    color: rgba(255, 255, 255, .7);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    color: rgba(255, 255, 255, .8);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
 }
 
-/* CONTEÚDO DOS SLIDES */
 .slide-content {
     display: flex;
     flex-direction: column;
@@ -159,29 +157,30 @@ body {
     gap: .7rem;
     text-align: center;
     width: 100%;
-    max-width: 420px;
+    max-width: 440px;
 }
 
 .slide-emoji {
-    font-size: clamp(3rem, 12vw, 5rem);
+    font-size: clamp(3rem, 12vw, 4.8rem);
     line-height: 1;
     display: block;
 }
 
 .slide-kicker {
     font-family: var(--font-m);
-    font-size: .65rem;
+    font-size: .7rem;
     letter-spacing: .25em;
     text-transform: uppercase;
-    padding: .3rem .8rem;
-    background: rgba(255, 255, 255, .15);
+    padding: .35rem .9rem;
+    background: rgba(255, 255, 255, .2);
     color: #fff;
     border-radius: 2px;
+    font-weight: 700;
 }
 
 .slide-big {
     font-family: var(--font-d);
-    font-size: clamp(3.5rem, 14vw, 7rem);
+    font-size: clamp(2.8rem, 11vw, 5.2rem);
     line-height: .95;
     letter-spacing: -.01em;
     color: #fff;
@@ -190,77 +189,40 @@ body {
 .slide-sub {
     font-family: var(--font-m);
     font-size: .85rem;
-    color: rgba(255, 255, 255, .85);
+    color: rgba(255, 255, 255, .9);
     letter-spacing: .03em;
-}
-
-.slide-quote {
-    font-family: var(--font-d);
-    font-size: clamp(1.3rem, 5vw, 2rem);
-    color: #fff;
-    line-height: 1.2;
-    font-style: italic;
-    border-left: 4px solid rgba(255, 255, 255, .5);
-    padding-left: .8rem;
-    text-align: left;
-    margin-top: .5rem;
-}
-
-.slide-credit {
-    font-family: var(--font-m);
-    font-size: .65rem;
-    color: rgba(255, 255, 255, .6);
-    align-self: flex-start;
-    padding-left: 1rem;
-    letter-spacing: .05em;
-}
-
-.slide-body {
-    font-family: var(--font-m);
-    font-size: .78rem;
-    line-height: 1.7;
     max-width: 360px;
-    color: #0a0a0a;
-    opacity: .85;
+    line-height: 1.5;
 }
 
-.slide-tag {
-    font-family: var(--font-d);
-    font-size: .85rem;
-    letter-spacing: .12em;
-    padding: .4rem 1rem;
-    margin-top: .3rem;
-}
-
-/* CHECKLIST SLIDE 3 */
 .slide-checklist {
     display: flex;
     flex-direction: column;
     gap: .5rem;
     text-align: left;
     width: 100%;
-    max-width: 340px;
+    max-width: 360px;
+    margin-top: .5rem;
 }
 
 .check-item {
     font-family: var(--font-m);
     font-size: .8rem;
     color: #0a0a0a;
-    background: rgba(0, 0, 0, .08);
-    padding: .4rem .8rem;
-    border-radius: 2px;
+    background: rgba(255, 255, 255, .9);
+    padding: .45rem .8rem;
+    border-radius: 3px;
     font-weight: 700;
-    letter-spacing: .02em;
+    box-shadow: 2px 2px 0 rgba(0,0,0,.3);
 }
 
 .check-final {
     background: #0a0a0a;
-    color: var(--green);
-    font-size: .95rem;
-    margin-top: .3rem;
+    color: var(--yellow);
+    font-size: .88rem;
+    border: 2px solid var(--yellow);
 }
 
-/* SWIPE HINT */
 .swipe-hint {
     position: absolute;
     bottom: 2rem;
@@ -283,32 +245,14 @@ body {
     font-family: var(--font-d);
     font-size: .75rem;
     letter-spacing: .2em;
-    color: rgba(255, 255, 255, .7);
+    color: rgba(255, 255, 255, .8);
 }
 
 @keyframes swipeBounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-.swipe-up-final .swipe-arrow {
-    font-size: 2.5rem;
-    color: #fff;
-}
-
-.swipe-up-final .swipe-label {
-    color: #fff;
-    font-size: .85rem;
-}
-
-/* ZONAS DE TOQUE */
 .story-tap-left,
 .story-tap-right {
     position: absolute;
@@ -317,84 +261,30 @@ body {
     width: 40%;
     z-index: 9;
 }
+.story-tap-left { left: 0; }
+.story-tap-right { right: 0; }
 
-.story-tap-left {
-    left: 0;
-}
-
-.story-tap-right {
-    right: 0;
-}
-
-/* ANIMAÇÕES DOS EMOJIS */
-.anim-bounce {
-    animation: emojiBounce 1s ease-in-out infinite;
-}
-
+.anim-bounce { animation: emojiBounce 1s ease-in-out infinite; }
 @keyframes emojiBounce {
-
-    0%,
-    100% {
-        transform: translateY(0) scale(1);
-    }
-
-    50% {
-        transform: translateY(-12px) scale(1.1);
-    }
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.1); }
 }
-
-.anim-shake {
-    animation: emojiShake .5s ease-in-out infinite;
-}
-
+.anim-shake { animation: emojiShake .5s ease-in-out infinite; }
 @keyframes emojiShake {
-
-    0%,
-    100% {
-        transform: rotate(0);
-    }
-
-    25% {
-        transform: rotate(-8deg);
-    }
-
-    75% {
-        transform: rotate(8deg);
-    }
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
 }
-
-.anim-spin {
-    animation: emojiSpin 3s linear infinite;
-}
-
+.anim-spin { animation: emojiSpin 3s linear infinite; }
 @keyframes emojiSpin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
-
-.anim-pulse {
-    animation: emojipulse 1s ease-in-out infinite;
-}
-
+.anim-pulse { animation: emojipulse 1s ease-in-out infinite; }
 @keyframes emojipulse {
-
-    0%,
-    100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateY(-14px) scale(1.2);
-        opacity: .7;
-    }
+    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-14px) scale(1.2); opacity: .7; }
 }
-
 
 /* ============================================================
    TICKER
@@ -405,220 +295,985 @@ body {
     border-bottom: var(--border);
     overflow: hidden;
     white-space: nowrap;
-    padding: .5rem 0;
+    padding: .55rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 500;
 }
 
 .ticker-track {
     display: inline-block;
-    animation: ticker 30s linear infinite;
+    animation: ticker 35s linear infinite;
     font-family: var(--font-d);
-    font-size: .9rem;
+    font-size: .92rem;
     letter-spacing: .08em;
     color: var(--black);
 }
 
 @keyframes ticker {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 /* ============================================================
-   SITE WRAP
+   SITE WRAPPER
 ============================================================ */
 .site-wrap {
-    max-width: 680px;
+    max-width: 760px;
     margin: 0 auto;
+    background: var(--white);
+    border-left: var(--border);
+    border-right: var(--border);
 }
 
 /* ============================================================
-   SECTION HEADER (reusável)
+   SECTION HEADERS (REUSÁVEIS)
 ============================================================ */
 .section-header {
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
     gap: .8rem;
-    padding: 1.2rem 1.5rem .8rem;
+    padding: 1.2rem 1.5rem .9rem;
     border-bottom: var(--border);
     font-family: var(--font-d);
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     letter-spacing: .04em;
     color: var(--black);
     background: var(--white);
+    flex-wrap: wrap;
 }
 
 .section-header-sub {
     font-family: var(--font-m);
-    font-size: .65rem;
+    font-size: .68rem;
     font-weight: 400;
-    color: #555;
+    color: #444;
     letter-spacing: .05em;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
 
 /* ============================================================
-   HERO
+   HERO SECTION
 ============================================================ */
 .hero-section {
     background: var(--yellow);
     border-bottom: var(--border);
-    padding: 0;
+    position: relative;
 }
 
 .hero-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .6rem 1.5rem;
+    padding: .65rem 1.5rem;
     border-bottom: var(--border);
     background: var(--black);
     font-family: var(--font-d);
-    font-size: .85rem;
-    letter-spacing: .05em;
+    font-size: .9rem;
+    letter-spacing: .06em;
     color: var(--white);
+}
+
+.hero-nav-badge {
+    background: var(--red);
+    color: #fff;
+    padding: .15rem .5rem;
+    border-radius: 2px;
+    font-family: var(--font-m);
+    font-size: .65rem;
+    letter-spacing: .1em;
+    animation: blinkBadge 1.2s infinite;
+}
+
+@keyframes blinkBadge {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .4; }
 }
 
 .hero-nav-right {
     font-family: var(--font-m);
-    font-size: .6rem;
-    color: #888;
-    letter-spacing: .1em;
+    font-size: .65rem;
+    color: #aaa;
+    letter-spacing: .08em;
+}
+
+.hero-content {
+    padding: 1.5rem 1.5rem 1.2rem;
 }
 
 .hero-kicker {
     font-family: var(--font-m);
-    font-size: .7rem;
-    letter-spacing: .25em;
+    font-size: .72rem;
+    letter-spacing: .22em;
     text-transform: uppercase;
     background: var(--blue);
     color: var(--white);
     display: inline-block;
     padding: .3rem .8rem;
-    margin: 1.5rem 1.5rem .5rem;
+    margin-bottom: .8rem;
     box-shadow: var(--shadow);
+    font-weight: 700;
 }
 
 .hero-title {
     font-family: var(--font-d);
-    font-size: clamp(6rem, 22vw, 11rem);
-    line-height: .9;
-    letter-spacing: -.01em;
+    font-size: clamp(3.2rem, 12vw, 6.5rem);
+    line-height: .92;
+    letter-spacing: -.02em;
     color: var(--black);
-    text-shadow: 6px 6px 0 var(--pink);
-    padding: 0 1.5rem .5rem;
-    text-decoration: line-through;
-    text-decoration-color: var(--pink);
-    text-decoration-thickness: 8px;
+    text-shadow: 5px 5px 0 var(--pink);
+    margin-bottom: .8rem;
 }
 
-.hero-quote-box {
-    background: var(--white);
+.hero-lead {
+    font-family: var(--font-m);
+    font-size: clamp(.85rem, 2.5vw, 1.05rem);
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--black);
+    margin-bottom: 1.2rem;
+}
+
+/* QUADRO DE ESTATÍSTICAS RÁPIDAS DO CLÃ */
+.clan-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5rem;
+    background: var(--black);
     border: var(--border);
-    border-left: none;
-    border-right: none;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 4px 0 var(--black);
-    margin: .5rem 0;
-}
-
-.hero-quote {
-    font-family: var(--font-d);
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
-    line-height: 1.2;
-    color: var(--black);
-    letter-spacing: .01em;
-}
-
-.hero-quote-credit {
-    font-family: var(--font-m);
-    font-size: .72rem;
-    color: #555;
+    padding: .6rem;
+    box-shadow: var(--shadow);
     margin-top: .5rem;
-    font-style: italic;
 }
 
-.hero-irony {
-    font-family: var(--font-m);
-    font-size: .8rem;
+.stat-box {
+    background: var(--white);
+    border: 2px solid var(--black);
+    padding: .6rem .4rem;
+    text-align: center;
+}
+
+.stat-val {
+    font-family: var(--font-d);
+    font-size: 1.4rem;
+    line-height: 1;
     color: var(--black);
-    padding: .8rem 1.5rem 1.5rem;
-    opacity: .75;
-    font-style: italic;
+}
+
+.stat-box.hot .stat-val {
+    color: var(--red);
+}
+
+.stat-lbl {
+    font-family: var(--font-m);
+    font-size: .58rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #555;
+    margin-top: .25rem;
+    line-height: 1.2;
 }
 
 /* ============================================================
-   MEME
+   DESTINÔMETRO / COCKPIT INTERATIVO DO DESTINO
 ============================================================ */
-.meme-section {
+.destinometro-section {
+    background: #111;
+    border-bottom: var(--border);
+    padding: 1.5rem;
+    color: var(--white);
+}
+
+.destinometro-box {
+    border: 3px solid var(--yellow);
+    background: #1a1a1a;
+    padding: 1.2rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.dest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .8rem;
+    border-bottom: 2px dashed #444;
+    padding-bottom: .6rem;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.dest-title {
+    font-family: var(--font-d);
+    font-size: 1.4rem;
+    letter-spacing: .05em;
+    color: var(--yellow);
+}
+
+.dest-indicator {
+    font-family: var(--font-m);
+    font-size: .7rem;
+    background: #000;
+    color: var(--green);
+    padding: .25rem .6rem;
+    border: 1px solid var(--green);
+    letter-spacing: .08em;
+}
+
+.dest-desc {
+    font-family: var(--font-m);
+    font-size: .78rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.dest-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .8rem;
+    margin-bottom: .8rem;
+}
+
+.dest-btn {
+    font-family: var(--font-d);
+    font-size: 1.05rem;
+    letter-spacing: .05em;
+    padding: .9rem 1rem;
+    border: 3px solid #000;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #000;
+    transition: transform .1s, box-shadow .1s, filter .1s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .2rem;
+}
+
+.dest-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+    filter: brightness(1.08);
+}
+
+.dest-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #000;
+}
+
+.dest-btn-sub {
+    font-family: var(--font-m);
+    font-size: .62rem;
+    font-weight: 400;
+    letter-spacing: .02em;
+    opacity: .9;
+}
+
+.btn-prison {
+    background: var(--red);
+    color: #fff;
+}
+
+.btn-escape {
+    background: var(--cyan);
+    color: #000;
+}
+
+.dest-secondary-buttons {
+    display: flex;
+    gap: .6rem;
+}
+
+.dest-btn-small {
+    flex: 1;
+    font-family: var(--font-m);
+    font-size: .72rem;
+    font-weight: 700;
+    padding: .5rem .8rem;
+    border: 2px solid #555;
+    background: #2a2a2a;
+    color: #fff;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+    letter-spacing: .04em;
+    text-align: center;
+}
+
+.dest-btn-small:hover {
+    background: #3a3a3a;
+    border-color: var(--yellow);
+    color: var(--yellow);
+}
+
+.dest-status-banner {
+    margin-top: 1rem;
+    padding: .6rem .8rem;
+    background: #000;
+    border-left: 4px solid var(--green);
+    font-family: var(--font-m);
+    font-size: .74rem;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+/* ============================================================
+   CLAN FILTER TABS
+============================================================ */
+.filter-section {
+    background: var(--white);
+    border-bottom: var(--border);
+    padding: .8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.filter-label {
+    font-family: var(--font-d);
+    font-size: .85rem;
+    letter-spacing: .06em;
+    color: #666;
+    margin-right: .3rem;
+    flex-shrink: 0;
+}
+
+.filter-btn {
+    font-family: var(--font-m);
+    font-size: .72rem;
+    font-weight: 700;
+    padding: .4rem .75rem;
+    border: 2px solid var(--black);
+    background: var(--white);
+    color: var(--black);
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--black);
+    transition: all .1s;
+    flex-shrink: 0;
+}
+
+.filter-btn:hover {
+    background: var(--yellow);
+}
+
+.filter-btn.active {
     background: var(--black);
+    color: var(--yellow);
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+
+/* ============================================================
+   CLAN MEMBER CARDS
+============================================================ */
+.clan-section {
+    background: #eaeae5;
     border-bottom: var(--border);
     padding: 1.5rem;
 }
 
-.meme-wrap {
+.member-card {
+    background: var(--white);
+    border: var(--border);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
     position: relative;
-    display: inline-block;
-    max-width: 320px;
-    width: 100%;
-    margin: 0 auto;
-    display: block;
 }
 
-.meme-photo {
-    width: 100%;
-    display: block;
-    border: var(--border);
-    filter: grayscale(10%) contrast(1.1);
+.member-card:last-child {
+    margin-bottom: 0;
 }
 
-.meme-sticker {
-    position: absolute;
+/* CARD HEADER */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .65rem 1rem;
+    border-bottom: var(--border);
     font-family: var(--font-d);
-    font-size: 1.3rem;
-    line-height: 1;
-    letter-spacing: .04em;
-    padding: .4rem .6rem;
-    box-shadow: var(--shadow);
-    transform: rotate(-4deg);
-}
-
-.sticker-tl {
-    top: 10px;
-    left: 10px;
-    background: var(--pink);
-    color: var(--white);
-    transform: rotate(-6deg);
-}
-
-.sticker-br {
-    bottom: 10px;
-    right: 10px;
-    background: var(--yellow);
-    color: var(--black);
-    transform: rotate(4deg);
-}
-
-.meme-caption-bar {
-    background: var(--green);
-    border: var(--border);
-    border-top: none;
-    font-family: var(--font-d);
-    font-size: 1rem;
     letter-spacing: .05em;
-    color: var(--black);
-    padding: .6rem 1rem;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+
+.card-top-jair { background: var(--yellow); color: var(--black); }
+.card-top-flavio { background: var(--orange); color: var(--white); }
+.card-top-eduardo { background: var(--blue); color: var(--white); }
+.card-top-carlos { background: var(--pink); color: var(--white); }
+
+.card-code {
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.card-role {
+    font-family: var(--font-m);
+    font-size: .65rem;
+    padding: .15rem .45rem;
+    background: rgba(0,0,0,.2);
+    border-radius: 2px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.card-body-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    border-bottom: var(--border);
+}
+
+/* FOTO & OVERLAYS */
+.card-visual {
+    position: relative;
+    border-right: var(--border);
+    background: #111;
+    overflow: hidden;
+    min-height: 310px;
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.1) brightness(.95);
+    transition: filter .3s ease;
+}
+
+/* JAIL BARS OVERLAY (ANIMADO QUANDO PRESO) */
+.jail-bars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .35s cubic-bezier(.4, 0, .2, 1);
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(15, 15, 15, 0.95) 0px,
+        rgba(15, 15, 15, 0.95) 12px,
+        rgba(60, 60, 60, 0.7) 14px,
+        transparent 16px,
+        transparent 38px
+    );
+    box-shadow: inset 0 0 40px rgba(0,0,0,.9);
+    z-index: 5;
+}
+
+/* FLIGHT / FORAGIDO OVERLAY (ANIMADO QUANDO FUGA) */
+.flight-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .35s cubic-bezier(.4, 0, .2, 1);
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.25) 0%, rgba(255, 23, 68, 0.25) 100%);
+    box-shadow: inset 0 0 30px rgba(0,0,0,.7);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: .8rem;
+}
+
+.flight-ticket-badge {
+    background: var(--yellow);
+    color: #000;
+    font-family: var(--font-d);
+    font-size: .8rem;
+    padding: .3rem .5rem;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0 #000;
     text-align: center;
-    box-shadow: 0 4px 0 var(--black);
-    max-width: 320px;
-    margin: 0 auto;
+    letter-spacing: .05em;
+}
+
+/* CARIMBO DINÂMICO */
+.status-stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-14deg) scale(0);
+    padding: .4rem .8rem;
+    font-family: var(--font-d);
+    font-size: 1.5rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border: 4px dashed;
+    text-align: center;
+    line-height: 1.1;
+    z-index: 10;
+    transition: transform .35s cubic-bezier(.175, .885, .32, 1.275);
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,.5);
+}
+
+.stamp-arrested {
+    color: var(--red);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--red);
+}
+
+.stamp-fugitive {
+    color: #0066cc;
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #0066cc;
+}
+
+/* ESTADOS DINÂMICOS DO CARD */
+.member-card.state-arrested .jail-bars {
+    opacity: 1;
+}
+
+.member-card.state-arrested .member-photo {
+    filter: grayscale(80%) brightness(.75);
+}
+
+.member-card.state-arrested .stamp-arrested {
+    transform: translate(-50%, -50%) rotate(-14deg) scale(1);
+}
+
+.member-card.state-fugitive .flight-overlay {
+    opacity: 1;
+}
+
+.member-card.state-fugitive .stamp-fugitive {
+    transform: translate(-50%, -50%) rotate(12deg) scale(1);
+}
+
+/* DETALHES DO MEMBRO */
+.card-info {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.member-name {
+    font-family: var(--font-d);
+    font-size: 1.8rem;
+    line-height: 1;
+    letter-spacing: .02em;
+    color: var(--black);
+    margin-bottom: .2rem;
+}
+
+.member-alias {
+    font-family: var(--font-m);
+    font-size: .75rem;
+    color: #666;
+    margin-bottom: .8rem;
+}
+
+/* STATUS ATUAL BADGE */
+.live-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: #000;
+    color: var(--yellow);
+    font-family: var(--font-m);
+    font-size: .68rem;
+    font-weight: 700;
+    padding: .35rem .7rem;
+    border-radius: 2px;
+    letter-spacing: .05em;
+    margin-bottom: .9rem;
+    align-self: flex-start;
+}
+
+.live-status-pill .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    display: inline-block;
+    animation: blinkBadge .9s infinite;
+}
+
+/* TERMÔMETRO DE RISCO PAPUDA */
+.risk-meter-wrap {
+    margin-bottom: 1rem;
+}
+
+.risk-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-m);
+    font-size: .68rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+    text-transform: uppercase;
+}
+
+.risk-percent {
+    color: var(--red);
+    font-family: var(--font-d);
+    font-size: .95rem;
+}
+
+.risk-bar-track {
+    height: 10px;
+    background: #ddd;
+    border: 2px solid var(--black);
+    overflow: hidden;
+}
+
+.risk-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--yellow), var(--orange), var(--red));
+    transition: width .8s ease;
+}
+
+/* DESTINO PROVÁVEL BOX */
+.dest-prediction-box {
+    background: #f0f0ea;
+    border: 2px solid var(--black);
+    padding: .6rem .8rem;
+    margin-bottom: 1rem;
+}
+
+.pred-title {
+    font-family: var(--font-m);
+    font-size: .62rem;
+    text-transform: uppercase;
+    color: #777;
+    letter-spacing: .05em;
+    margin-bottom: .2rem;
+}
+
+.pred-text {
+    font-family: var(--font-d);
+    font-size: 1.05rem;
+    letter-spacing: .03em;
+    color: var(--black);
+    line-height: 1.15;
+}
+
+/* PÉROLA / CITAÇÃO DO MEMBRO */
+.member-quote {
+    background: #fff;
+    border-left: 4px solid var(--pink);
+    padding: .5rem .75rem;
+    font-family: var(--font-d);
+    font-size: .92rem;
+    font-style: italic;
+    color: #222;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+}
+
+/* BOTÕES DE AÇÃO INDIVIDUAIS */
+.member-action-btns {
+    display: flex;
+    gap: .5rem;
+}
+
+.btn-card-action {
+    flex: 1;
+    font-family: var(--font-d);
+    font-size: .8rem;
+    letter-spacing: .05em;
+    padding: .45rem .6rem;
+    border: 2px solid var(--black);
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--black);
+    transition: transform .1s, box-shadow .1s;
+    text-align: center;
+}
+
+.btn-card-action:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--black);
+}
+
+.btn-card-action:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--black);
+}
+
+.btn-card-arrest {
+    background: var(--red);
+    color: #fff;
+}
+
+.btn-card-fugitive {
+    background: var(--cyan);
+    color: #000;
+}
+
+/* SEÇÃO EXPANSÍVEL: O QUE PODE LEVAR PRESO */
+.card-crimes-section {
+    padding: 1.2rem 1.4rem;
+    background: var(--white);
+    border-top: 2px dashed #ccc;
+}
+
+.crimes-accordion-title {
+    font-family: var(--font-d);
+    font-size: 1.15rem;
+    letter-spacing: .04em;
+    color: var(--black);
+    margin-bottom: .8rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.crime-investigation-list {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.crime-inv-item {
+    background: #fbfbf8;
+    border: 2px solid #ddd;
+    border-left: 5px solid var(--black);
+    padding: .65rem .85rem;
+    transition: border-color .15s;
+}
+
+.crime-inv-item:hover {
+    border-color: var(--black);
+}
+
+.crime-inv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: .5rem;
+    margin-bottom: .25rem;
+    flex-wrap: wrap;
+}
+
+.crime-inv-name {
+    font-family: var(--font-d);
+    font-size: .95rem;
+    letter-spacing: .03em;
+    color: var(--black);
+}
+
+.crime-inv-penalty {
+    font-family: var(--font-m);
+    font-size: .65rem;
+    color: var(--red);
+    font-weight: 700;
+}
+
+.crime-inv-desc {
+    font-family: var(--font-m);
+    font-size: .72rem;
+    color: #444;
+    line-height: 1.55;
+}
+
+.crime-inv-tag {
+    display: inline-block;
+    font-family: var(--font-m);
+    font-size: .58rem;
+    background: #eaeae5;
+    padding: .15rem .45rem;
+    margin-top: .3rem;
+    color: #333;
+    font-weight: 700;
 }
 
 /* ============================================================
-   TERMINAL
+   BOLÃO DA PAPUDA / INFOGRÁFICO COMPARATIVO
+============================================================ */
+.bolao-section {
+    background: var(--black);
+    border-bottom: var(--border);
+    padding: 1.8rem 1.5rem;
+    color: var(--white);
+}
+
+.bolao-section .section-header {
+    background: var(--yellow);
+    color: var(--black);
+    margin: -1.8rem -1.5rem 1.5rem;
+    border-top: none;
+}
+
+.bolao-intro {
+    font-family: var(--font-m);
+    font-size: .8rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.bolao-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .8rem;
+}
+
+.bolao-card {
+    background: #181818;
+    border: 2px solid #333;
+    padding: 1rem;
+    box-shadow: 4px 4px 0 rgba(255, 230, 0, 0.2);
+    position: relative;
+}
+
+.bolao-card:hover {
+    border-color: var(--yellow);
+}
+
+.bolao-badge {
+    font-family: var(--font-d);
+    font-size: .75rem;
+    background: var(--yellow);
+    color: var(--black);
+    padding: .2rem .5rem;
+    display: inline-block;
+    margin-bottom: .5rem;
+    letter-spacing: .06em;
+}
+
+.bolao-name {
+    font-family: var(--font-d);
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: .4rem;
+}
+
+.bolao-prediction {
+    font-family: var(--font-m);
+    font-size: .72rem;
+    color: #bbb;
+    line-height: 1.55;
+    margin-bottom: .6rem;
+}
+
+.bolao-odds {
+    font-family: var(--font-m);
+    font-size: .65rem;
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* ============================================================
+   VOTAÇÃO INTERATIVA DO POVO (ENQUETE)
+============================================================ */
+.poll-section {
+    background: var(--white);
+    border-bottom: var(--border);
+    padding: 1.8rem 1.5rem;
+}
+
+.poll-box {
+    border: var(--border);
+    background: var(--yellow);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.poll-kicker {
+    font-family: var(--font-m);
+    font-size: .65rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: .4rem;
+}
+
+.poll-question {
+    font-family: var(--font-d);
+    font-size: clamp(1.4rem, 4vw, 2.1rem);
+    line-height: 1.1;
+    color: var(--black);
+    margin-bottom: .8rem;
+    letter-spacing: .02em;
+}
+
+.poll-options {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    margin-top: 1rem;
+}
+
+.poll-btn {
+    border: var(--border);
+    background: var(--white);
+    padding: .9rem 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform .1s, box-shadow .1s;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.poll-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--black);
+}
+
+.poll-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--black);
+}
+
+.poll-btn-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.poll-btn-title {
+    font-family: var(--font-d);
+    font-size: 1.05rem;
+    letter-spacing: .04em;
+    color: var(--black);
+}
+
+.poll-btn-votes {
+    font-family: var(--font-m);
+    font-size: .75rem;
+    font-weight: 700;
+    color: #222;
+}
+
+.poll-progress-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    z-index: 1;
+    transition: width .6s cubic-bezier(.4, 0, .2, 1);
+    opacity: .35;
+}
+
+.poll-btn-1 .poll-progress-bg { background: var(--red); }
+.poll-btn-2 .poll-progress-bg { background: var(--blue); }
+
+.poll-thanks {
+    margin-top: .8rem;
+    font-family: var(--font-m);
+    font-size: .75rem;
+    color: #333;
+    font-style: italic;
+    display: none;
+}
+
+/* ============================================================
+   TERMINAL HACKER DE BRASÍLIA
 ============================================================ */
 .terminal-section {
     background: var(--white);
@@ -629,7 +1284,7 @@ body {
     display: flex;
     align-items: center;
     gap: .5rem;
-    padding: .6rem 1rem;
+    padding: .65rem 1.2rem;
     background: #1a1a1a;
     border-bottom: var(--border);
 }
@@ -639,23 +1294,14 @@ body {
     height: 12px;
     border-radius: 50%;
 }
-
-.term-dot.red {
-    background: #ff5f57;
-}
-
-.term-dot.yellow {
-    background: #febc2e;
-}
-
-.term-dot.green {
-    background: #28c840;
-}
+.term-dot.red { background: #ff5f57; }
+.term-dot.yellow { background: #febc2e; }
+.term-dot.green { background: #28c840; }
 
 .term-title {
     font-family: var(--font-m);
-    font-size: .7rem;
-    color: #888;
+    font-size: .72rem;
+    color: #aaa;
     margin-left: .5rem;
     letter-spacing: .05em;
 }
@@ -663,7 +1309,7 @@ body {
 .terminal-body {
     background: #111;
     padding: 1.2rem 1.4rem;
-    min-height: 90px;
+    min-height: 100px;
 }
 
 .term-line {
@@ -674,7 +1320,7 @@ body {
 }
 
 .term-line.dim {
-    color: #555;
+    color: #666;
     margin-bottom: .4rem;
     font-size: .75rem;
 }
@@ -696,24 +1342,87 @@ body {
 }
 
 @keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1
-    }
-
-    50% {
-        opacity: 0
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* ============================================================
-   CONTADOR
+   MEME & HALL DA FAMA
+============================================================ */
+.meme-section {
+    background: var(--black);
+    border-bottom: var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.meme-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.meme-card {
+    position: relative;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    background: #111;
+}
+
+.meme-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.1);
+}
+
+.meme-sticker {
+    position: absolute;
+    font-family: var(--font-d);
+    font-size: 1.1rem;
+    line-height: 1;
+    letter-spacing: .04em;
+    padding: .35rem .6rem;
+    box-shadow: var(--shadow);
+}
+
+.sticker-tl {
+    top: 8px;
+    left: 8px;
+    background: var(--pink);
+    color: var(--white);
+    transform: rotate(-5deg);
+}
+
+.sticker-br {
+    bottom: 8px;
+    right: 8px;
+    background: var(--yellow);
+    color: var(--black);
+    transform: rotate(4deg);
+}
+
+.meme-card-caption {
+    background: var(--green);
+    border-top: var(--border);
+    font-family: var(--font-d);
+    font-size: .85rem;
+    letter-spacing: .05em;
+    color: var(--black);
+    padding: .5rem;
+    text-align: center;
+}
+
+/* ============================================================
+   CONTADOR DE TESTEMUNHAS ONLINE
 ============================================================ */
 .counter-section {
     background: var(--green);
     border-bottom: var(--border);
-    padding: 2rem 1.5rem;
+    padding: 2.2rem 1.5rem;
     text-align: center;
 }
 
@@ -723,7 +1432,7 @@ body {
     letter-spacing: .3em;
     text-transform: uppercase;
     color: var(--black);
-    opacity: .6;
+    opacity: .7;
     margin-bottom: .4rem;
 }
 
@@ -740,205 +1449,25 @@ body {
     font-family: var(--font-m);
     font-size: .8rem;
     color: var(--black);
-    opacity: .7;
+    opacity: .75;
     margin-top: .4rem;
 }
 
 .counter-spike {
     font-family: var(--font-d);
-    font-size: .9rem;
+    font-size: .95rem;
     color: var(--black);
     margin-top: .5rem;
     transition: opacity .5s;
 }
 
 /* ============================================================
-   CRIMES / LEGADO
-============================================================ */
-.crimes-section {
-    background: var(--white);
-    border-bottom: var(--border);
-}
-
-.crimes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.crime-card {
-    padding: 1.2rem;
-    border-right: var(--border);
-    border-bottom: var(--border);
-    transition: transform .15s;
-    position: relative;
-    overflow: hidden;
-}
-
-.crime-card:nth-child(2n) {
-    border-right: none;
-}
-
-.crime-card:nth-last-child(-n+2) {
-    border-bottom: none;
-}
-
-.crime-card:hover {
-    transform: scale(1.01);
-    z-index: 1;
-}
-
-/* card color accents */
-.c1 {
-    background: var(--yellow);
-}
-
-.c2 {
-    background: var(--white);
-}
-
-.c3 {
-    background: var(--pink);
-    color: var(--white);
-}
-
-.c4 {
-    background: var(--white);
-}
-
-.c5 {
-    background: var(--green);
-}
-
-.c6 {
-    background: var(--white);
-}
-
-.crime-num {
-    font-family: var(--font-d);
-    font-size: 2.5rem;
-    line-height: 1;
-    opacity: .15;
-    position: absolute;
-    top: .5rem;
-    right: .8rem;
-    letter-spacing: -.02em;
-}
-
-.crime-title {
-    font-family: var(--font-d);
-    font-size: .95rem;
-    letter-spacing: .04em;
-    margin-bottom: .5rem;
-    line-height: 1.1;
-    position: relative;
-}
-
-.crime-body {
-    font-family: var(--font-m);
-    font-size: .7rem;
-    line-height: 1.6;
-    opacity: .85;
-    position: relative;
-}
-
-.crime-tag {
-    display: inline-block;
-    font-family: var(--font-d);
-    font-size: .6rem;
-    letter-spacing: .12em;
-    background: var(--black);
-    color: var(--white);
-    padding: .15rem .5rem;
-    margin-top: .7rem;
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, .3);
-}
-
-.c3 .crime-tag {
-    background: var(--white);
-    color: var(--black);
-}
-
-/* ============================================================
-   TIMELINE
-============================================================ */
-.timeline-section {
-    background: var(--black);
-    border-bottom: var(--border);
-}
-
-.timeline-section .section-header {
-    background: var(--orange);
-    color: var(--white);
-}
-
-.timeline-section .section-header-sub {
-    color: rgba(255, 255, 255, .6);
-}
-
-.timeline-list {
-    border-left: 4px solid var(--orange);
-    margin: 0;
-}
-
-.tl-item {
-    display: flex;
-    gap: 1rem;
-    padding: 1.3rem 1.5rem;
-    border-bottom: 1px solid #222;
-    transition: background .2s;
-}
-
-.tl-item:last-child {
-    border-bottom: none;
-}
-
-.tl-item:hover {
-    background: #111;
-}
-
-.tl-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-    margin-top: .1rem;
-}
-
-.tl-title {
-    font-family: var(--font-d);
-    font-size: .85rem;
-    letter-spacing: .08em;
-    color: var(--orange);
-    text-transform: uppercase;
-    margin-bottom: .4rem;
-}
-
-.tl-body {
-    font-family: var(--font-m);
-    font-size: .7rem;
-    line-height: 1.7;
-    color: #bbb;
-}
-
-.timeline-foot {
-    font-family: var(--font-m);
-    font-size: .72rem;
-    color: #555;
-    text-align: center;
-    padding: .8rem 1.5rem 1.2rem;
-    font-style: italic;
-}
-
-/* ============================================================
-   SHARE
+   SHARE BUTTONS
 ============================================================ */
 .share-section {
     background: var(--white);
     border-bottom: var(--border);
-    padding: 1.5rem;
-}
-
-.share-section .section-header {
-    margin: -1.5rem -1.5rem 1.2rem;
-    padding: 1rem 1.5rem;
+    padding: 1.8rem 1.5rem;
 }
 
 .share-desc {
@@ -946,7 +1475,7 @@ body {
     font-size: .82rem;
     line-height: 1.6;
     margin-bottom: 1.2rem;
-    opacity: .8;
+    color: #333;
 }
 
 .share-btns {
@@ -959,7 +1488,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: .5rem;
-    padding: .7rem 1.2rem;
+    padding: .75rem 1.2rem;
     font-family: var(--font-d);
     font-size: .85rem;
     letter-spacing: .08em;
@@ -988,88 +1517,17 @@ body {
     flex-shrink: 0;
 }
 
-.s-whatsapp {
-    background: #1a7a40;
-}
-
-.s-twitter {
-    background: var(--black);
-}
-
-.s-facebook {
-    background: #1565c0;
-}
-
-/* ============================================================
-   CTA
-============================================================ */
-.cta-section {
-    background: var(--pink);
-    border-bottom: var(--border);
-    padding: 2rem 1.5rem;
-}
-
-.cta-box {
-    text-align: center;
-}
-
-.cta-eyebrow {
-    font-family: var(--font-m);
-    font-size: .7rem;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, .7);
-    margin-bottom: .8rem;
-}
-
-.cta-title {
-    font-family: var(--font-d);
-    font-size: clamp(1.8rem, 6vw, 3rem);
-    line-height: 1.05;
-    color: var(--white);
-    text-shadow: 4px 4px 0 var(--black);
-    letter-spacing: .02em;
-    margin-bottom: 1rem;
-}
-
-.cta-body {
-    font-family: var(--font-m);
-    font-size: .8rem;
-    color: rgba(255, 255, 255, .8);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.cta-link {
-    display: inline-block;
-    background: var(--black);
-    color: var(--yellow);
-    font-family: var(--font-d);
-    font-size: 1rem;
-    letter-spacing: .1em;
-    padding: .8rem 2rem;
-    text-decoration: none;
-    border: 3px solid var(--black);
-    box-shadow: 5px 5px 0 rgba(0, 0, 0, .4);
-    transition: transform .1s, box-shadow .1s;
-}
-
-.cta-link:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0 rgba(0, 0, 0, .4);
-}
-
-.cta-link:active {
-    transform: translate(2px, 2px);
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, .4);
-}
+.s-whatsapp { background: #1a7a40; }
+.s-twitter { background: var(--black); }
+.s-telegram { background: #0088cc; }
+.s-facebook { background: #1565c0; }
 
 /* ============================================================
    AUTOR
 ============================================================ */
 .author-section {
     background: var(--black);
-    padding: 2rem 1.5rem;
+    padding: 2.2rem 1.5rem;
 }
 
 .author-box {
@@ -1080,9 +1538,9 @@ body {
 
 .author-quote {
     font-family: var(--font-d);
-    font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
     color: var(--white);
-    line-height: 1.3;
+    line-height: 1.35;
     letter-spacing: .01em;
     margin-bottom: 1rem;
     position: relative;
@@ -1138,19 +1596,19 @@ body {
 }
 
 /* ============================================================
-   BOTÃO ÁUDIO
+   BOTÃO FLUTUANTE DE ÁUDIO
 ============================================================ */
 #audio-control-button {
     position: fixed;
     bottom: 1.2rem;
     right: 1.2rem;
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 3px solid var(--yellow);
     background: var(--black);
     color: var(--white);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1171,34 +1629,37 @@ body {
 }
 
 /* ============================================================
-   UTILITÁRIO
+   UTILITÁRIOS & RESPONSIVO
 ============================================================ */
 .hidden {
     display: none !important;
 }
 
-/* ============================================================
-   RESPONSIVE
-============================================================ */
-@media (max-width: 520px) {
-    .hero-title {
-        font-size: clamp(5rem, 28vw, 7rem);
-    }
-
-    .crimes-grid {
+@media (max-width: 640px) {
+    .card-body-grid {
         grid-template-columns: 1fr;
     }
 
-    .crime-card {
-        border-right: none !important;
+    .card-visual {
+        border-right: none;
+        border-bottom: var(--border);
+        min-height: 260px;
     }
 
-    .crime-card:nth-last-child(-n+2) {
-        border-bottom: var(--border) !important;
+    .dest-buttons {
+        grid-template-columns: 1fr;
     }
 
-    .crime-card:last-child {
-        border-bottom: none !important;
+    .clan-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bolao-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meme-grid {
+        grid-template-columns: 1fr;
     }
 
     .sbtn {
