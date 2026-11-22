@@ -42,8 +42,8 @@ function playSirenSound() {
         osc.frequency.linearRampToValueAtTime(950, now + 0.75);
         osc.frequency.linearRampToValueAtTime(650, now + 1.0);
 
-        gain.gain.setValueAtTime(0.18, now);
-        gain.gain.linearRampToValueAtTime(0.18, now + 0.85);
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.linearRampToValueAtTime(0.2, now + 0.85);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 1.05);
 
         osc.connect(gain);
@@ -88,7 +88,7 @@ function playAirportSound() {
             osc.type = 'sine';
             osc.frequency.setValueAtTime(freq, now + (idx * 0.22));
 
-            gain.gain.setValueAtTime(0.2, now + (idx * 0.22));
+            gain.gain.setValueAtTime(0.22, now + (idx * 0.22));
             gain.gain.exponentialRampToValueAtTime(0.001, now + (idx * 0.22) + 0.5);
 
             osc.connect(gain);
@@ -211,7 +211,7 @@ function setupDestinometro() {
 
     if (!cards.length) return;
 
-    // Mandar todos pra Papudinha com o pai
+    // Mandar todos pra Papudinha com o pai (extraditar quem fugiu)
     if (btnArrestAll) {
         btnArrestAll.addEventListener('click', () => {
             getAudioContext();
@@ -230,24 +230,26 @@ function setupDestinometro() {
                 if (statusPill) {
                     const member = card.getAttribute('data-member');
                     if (member === 'jair') {
-                        statusPill.innerHTML = '<span class="pulse-dot"></span> CONDENADO A 27 ANOS · PRESO NA PAPUDINHA';
+                        statusPill.innerHTML = '<span class="pulse-dot"></span> CONDENADO A 27 ANOS · PRESO NA PAPUDA';
+                    } else if (member === 'flavio' || member === 'eduardo') {
+                        statusPill.innerHTML = '<span class="pulse-dot"></span> EXTRADITADO DOS EUA · ENVIADO DIRETO PRA PAPUDA';
                     } else {
-                        statusPill.innerHTML = '<span class="pulse-dot"></span> PRESO NA PAPUDINHA · FAZENDO COMPANHIA PRO CAPITÃO';
+                        statusPill.innerHTML = '<span class="pulse-dot"></span> PRESO NA PAPUDA · CELA COM O PAI NO 19º BPM';
                     }
-                    statusPill.style.background = '#ff1744';
-                    statusPill.style.color = '#fff';
+                    statusPill.style.background = 'var(--red)';
+                    statusPill.style.color = 'var(--cream)';
                 }
             });
 
             if (destStatusBanner) {
-                destStatusBanner.innerHTML = '🚨 MANDADOS CUMPRIDOS: OS 4 FILHOS FORAM TRANSFERIDOS PARA A PAPUDINHA JUNTO COM JAIR BOLSONARO NO 19º BPM!';
+                destStatusBanner.innerHTML = '🚨 MANDADOS CUMPRIDOS: FLÁVIO E EDUARDO EXTRADITADOS DE MIAMI/TEXAS · TODOS OS 4 FILHOS PRESOS COM JAIR NA PAPUDINHA!';
                 destStatusBanner.style.borderLeftColor = 'var(--red)';
                 destStatusBanner.style.color = 'var(--red)';
             }
         });
     }
 
-    // Fuga Geral pro Exterior (juntar com Eduardo)
+    // Fuga Geral pro Exterior (juntar com Flávio e Eduardo)
     if (btnEscapeAll) {
         btnEscapeAll.addEventListener('click', () => {
             getAudioContext();
@@ -264,22 +266,24 @@ function setupDestinometro() {
                 const statusPill = card.querySelector('.live-status-pill');
                 if (statusPill) {
                     const member = card.getAttribute('data-member');
-                    if (member === 'eduardo') {
-                        statusPill.innerHTML = '✈️ FORAGIDO NOS EUA · CASO BANCO MASTER (DALLAS)';
+                    if (member === 'flavio') {
+                        statusPill.innerHTML = '✈️ FORAGIDO EM MIAMI · FUGA PELA ARGENTINA';
+                    } else if (member === 'eduardo') {
+                        statusPill.innerHTML = '✈️ FORAGIDO NO TEXAS · CASO BANCO MASTER';
                     } else if (member === 'carlos') {
                         statusPill.innerHTML = '🛥️ FORAGIDO DE JET SKI EM ÁGUAS INTERNACIONAIS';
                     } else {
                         statusPill.innerHTML = '✈️ FORAGIDO NO EXTERIOR · GASTANDO O FUNDO HAVENGATE';
                     }
-                    statusPill.style.background = '#0066cc';
-                    statusPill.style.color = '#fff';
+                    statusPill.style.background = 'var(--black)';
+                    statusPill.style.color = 'var(--cream)';
                 }
             });
 
             if (destStatusBanner) {
-                destStatusBanner.innerHTML = '✈️ ALERTA VERMELHO INTERPOL: O CLÃ FOI VISTO NO TEXAS, FLÓRIDA E ILHAS CAYMAN COM A GRANA DO BANCO MASTER!';
-                destStatusBanner.style.borderLeftColor = 'var(--cyan)';
-                destStatusBanner.style.color = 'var(--cyan)';
+                destStatusBanner.innerHTML = '✈️ ALERTA VERMELHO INTERPOL: O CLÃ FOI VISTO REUNIDO EM MIAMI E NO TEXAS GASTANDO OS R$ 61 MI DO BANCO MASTER!';
+                destStatusBanner.style.borderLeftColor = 'var(--red)';
+                destStatusBanner.style.color = 'var(--cream)';
             }
         });
     }
@@ -292,7 +296,7 @@ function setupDestinometro() {
 
             cards.forEach(card => {
                 const member = card.getAttribute('data-member');
-                // Jair SEMPRE fica preso (condenado a 27 anos)
+                // Jair SEMPRE fica preso (já condenado a 27 anos)
                 const isArrested = member === 'jair' ? true : Math.random() > 0.5;
 
                 card.classList.remove('state-arrested', 'state-fugitive');
@@ -306,8 +310,8 @@ function setupDestinometro() {
                     if (fOverlay) fOverlay.style.opacity = '0';
                     if (statusPill) {
                         statusPill.innerHTML = '<span class="pulse-dot"></span> PRESO NA PAPUDA · 19º BPM';
-                        statusPill.style.background = '#ff1744';
-                        statusPill.style.color = '#fff';
+                        statusPill.style.background = 'var(--red)';
+                        statusPill.style.color = 'var(--cream)';
                     }
                 } else {
                     card.classList.add('state-fugitive');
@@ -315,21 +319,21 @@ function setupDestinometro() {
                     if (fOverlay) fOverlay.style.opacity = '1';
                     if (statusPill) {
                         statusPill.innerHTML = '✈️ FORAGIDO NO EXTERIOR';
-                        statusPill.style.background = '#0066cc';
-                        statusPill.style.color = '#fff';
+                        statusPill.style.background = 'var(--black)';
+                        statusPill.style.color = 'var(--cream)';
                     }
                 }
             });
 
             if (destStatusBanner) {
-                destStatusBanner.innerHTML = '⚖️ ROLETA DO STF: JAIR NA PAPUDINHA, E OS FILHOS DIVIDIDOS ENTRE O CAMBURÃO E O TEXAS!';
-                destStatusBanner.style.borderLeftColor = 'var(--yellow)';
-                destStatusBanner.style.color = 'var(--yellow)';
+                destStatusBanner.innerHTML = '⚖️ ROLETA DO STF: JAIR NA PAPUDINHA, E OS FILHOS DIVIDIDOS ENTRE O CAMBURÃO E MIAMI!';
+                destStatusBanner.style.borderLeftColor = 'var(--red)';
+                destStatusBanner.style.color = 'var(--cream)';
             }
         });
     }
 
-    // Restaurar Radar Real (Jair preso / Eduardo foragido / demais no radar)
+    // Restaurar Radar Real (Jair na Papudinha / Flávio e Eduardo foragidos nos EUA)
     if (btnResetRadar) {
         btnResetRadar.addEventListener('click', () => {
             cards.forEach(card => {
@@ -345,8 +349,17 @@ function setupDestinometro() {
                     if (fOverlay) fOverlay.style.opacity = '0';
                     if (statusPill) {
                         statusPill.innerHTML = '<span class="pulse-dot"></span> CONDENADO A 27 ANOS PELO STF · PRESO NA PAPUDA';
-                        statusPill.style.background = '#ff1744';
-                        statusPill.style.color = '#fff';
+                        statusPill.style.background = 'var(--red)';
+                        statusPill.style.color = 'var(--cream)';
+                    }
+                } else if (member === 'flavio') {
+                    card.classList.add('state-fugitive');
+                    if (jBars) jBars.style.opacity = '0';
+                    if (fOverlay) fOverlay.style.opacity = '1';
+                    if (statusPill) {
+                        statusPill.innerHTML = '✈️ FORAGIDO NOS EUA · FUGA PELA ARGENTINA APÓS ORDEM DE MORAES';
+                        statusPill.style.background = 'var(--red)';
+                        statusPill.style.color = 'var(--cream)';
                     }
                 } else if (member === 'eduardo') {
                     card.classList.add('state-fugitive');
@@ -354,8 +367,8 @@ function setupDestinometro() {
                     if (fOverlay) fOverlay.style.opacity = '1';
                     if (statusPill) {
                         statusPill.innerHTML = '✈️ FORAGIDO NOS EUA · CASO BANCO MASTER & FUNDO NO TEXAS';
-                        statusPill.style.background = '#0066cc';
-                        statusPill.style.color = '#fff';
+                        statusPill.style.background = 'var(--red)';
+                        statusPill.style.color = 'var(--cream)';
                     }
                 } else {
                     if (jBars) jBars.style.opacity = '0';
@@ -363,16 +376,16 @@ function setupDestinometro() {
                     const originalText = card.getAttribute('data-original-status') || 'INVESTIGADO NO STF';
                     if (statusPill) {
                         statusPill.innerHTML = `<span class="pulse-dot"></span> ${originalText}`;
-                        statusPill.style.background = '#000';
-                        statusPill.style.color = 'var(--yellow)';
+                        statusPill.style.background = 'var(--black)';
+                        statusPill.style.color = 'var(--cream)';
                     }
                 }
             });
 
             if (destStatusBanner) {
-                destStatusBanner.innerHTML = '📡 RADAR RESTAURADO: JAIR CONDENADO NA PAPUDINHA · EDUARDO FORAGIDO NOS EUA NO CASO BANCO MASTER · FLÁVIO, CARLOS E RENAN MONITORADOS.';
-                destStatusBanner.style.borderLeftColor = 'var(--green)';
-                destStatusBanner.style.color = 'var(--green)';
+                destStatusBanner.innerHTML = '📡 RADAR RESTAURADO: JAIR PRESO NA PAPUDINHA · FLÁVIO E EDUARDO FORAGIDOS NOS EUA · CARLOS E RENAN MONITORADOS.';
+                destStatusBanner.style.borderLeftColor = 'var(--red)';
+                destStatusBanner.style.color = 'var(--cream)';
             }
         });
     }
@@ -394,8 +407,8 @@ function setupDestinometro() {
                 const pill = card.querySelector('.live-status-pill');
                 if (pill) {
                     pill.innerHTML = '<span class="pulse-dot"></span> PRESO NA PAPUDA';
-                    pill.style.background = '#ff1744';
-                    pill.style.color = '#fff';
+                    pill.style.background = 'var(--red)';
+                    pill.style.color = 'var(--cream)';
                 }
             }
         });
@@ -417,8 +430,8 @@ function setupDestinometro() {
                 const pill = card.querySelector('.live-status-pill');
                 if (pill) {
                     pill.innerHTML = '✈️ FORAGIDO NO EXTERIOR';
-                    pill.style.background = '#0066cc';
-                    pill.style.color = '#fff';
+                    pill.style.background = 'var(--black)';
+                    pill.style.color = 'var(--cream)';
                 }
             }
         });
@@ -451,7 +464,7 @@ function setupClanFilters() {
 }
 
 // ============================================================
-// ENQUETE INTERATIVA DO POVO (PAPUDINHA VS TEXAS)
+// ENQUETE INTERATIVA DO POVO (PAPUDINHA VS EUA)
 // ============================================================
 function setupPoll() {
     const btn1 = document.getElementById('poll-opt-1');
@@ -464,8 +477,8 @@ function setupPoll() {
 
     if (!btn1 || !btn2) return;
 
-    let v1 = parseInt(localStorage.getItem('bolsonaro_poll_papuda_v2') || '4210', 10);
-    let v2 = parseInt(localStorage.getItem('bolsonaro_poll_disney_v2') || '520', 10);
+    let v1 = parseInt(localStorage.getItem('bolsonaro_poll_papuda_v3') || '4580', 10);
+    let v2 = parseInt(localStorage.getItem('bolsonaro_poll_disney_v3') || '450', 10);
 
     function updateBars() {
         const total = v1 + v2;
@@ -484,7 +497,7 @@ function setupPoll() {
         getAudioContext();
         playSirenSound();
         v1++;
-        localStorage.setItem('bolsonaro_poll_papuda_v2', v1);
+        localStorage.setItem('bolsonaro_poll_papuda_v3', v1);
         updateBars();
         if (thanks) {
             thanks.style.display = 'block';
@@ -496,11 +509,11 @@ function setupPoll() {
         getAudioContext();
         playAirportSound();
         v2++;
-        localStorage.setItem('bolsonaro_poll_disney_v2', v2);
+        localStorage.setItem('bolsonaro_poll_disney_v3', v2);
         updateBars();
         if (thanks) {
             thanks.style.display = 'block';
-            thanks.textContent = '✅ Voto computado: Exílio no Texas com Eduardo Bolsonaro gastando a grana do Banco Master!';
+            thanks.textContent = '✅ Voto computado: Exílio nos EUA com Flávio e Eduardo gastando a grana do Banco Master!';
         }
     });
 }
@@ -510,15 +523,15 @@ function setupPoll() {
 // ============================================================
 const clanLines = [
     'JAIR (#00): Condenado pelo STF a 27 anos e 3 meses por tentativa de golpe de Estado e organização criminosa armada.',
-    'JAIR (#00): Tentou violar tornozeleira eletrônica com ferro de solda; Moraes decretou prisão preventiva fechada na Papudinha.',
-    'JAIR (#00): Instalado na Sala de Estado-Maior no 19º BPM (Complexo da Papuda, cela individual de 64 m²).',
-    'EDUARDO (#03): Foragido nos EUA. Investigado pela PF por repasses de R$ 61 milhões do Banco Master (Daniel Vorcaro).',
-    'EDUARDO (#03): Grana do Banco Master irrigou o Havengate Development Fund no Texas gerido por advogados ligados a Eduardo.',
-    'FLÁVIO (#01): Articulou com Daniel Vorcaro o contrato milionário de R$ 134 milhões disfarçado de filme sobre Jair.',
+    'JAIR (#00): Preso preventivamente na Papudinha (19º BPM) após tentar adulterar a tornozeleira eletrônica com ferro de solda.',
+    'FLÁVIO (#01): Foragido nos EUA. Fugiu de carro pela Argentina (Ponte Tancredo Neves) até Miami após ordem de entrega de passaporte.',
+    'FLÁVIO (#01): Articulou com Daniel Vorcaro repasses de R$ 61 milhões do Banco Master disfarçados de filme biográfico.',
+    'EDUARDO (#03): Foragido nos EUA. Gerenciava através de advogados o fundo Havengate no Texas abastecido pelo Banco Master.',
     'CARLOS (#02): Alvo da Operação Última Milha por chefiar espionagem da Abin Paralela; famosa fuga de jet ski em Angra.',
     'RENAN (#04): Réu na 5ª Vara Criminal do DF por lavagem de dinheiro, falsidade ideológica e calote de R$ 291 mil no Santander.',
     'RENAN (#04): Investigado pela PF por tráfico de influência para abrir portas de ministérios a empresários em troca de carro elétrico.',
-    'CERCO TOTAL: Jair já inaugurou a Papudinha. O destino dos filhos é a cela ao lado ou a extradição internacional.'
+    'FONTES OFICIAIS: Todas as investigações estão documentadas com links diretos do STF, MP-RJ, TJDFT e Polícia Federal.',
+    'RADAR DO CLÃ: Jair já inaugurou a cela no 19º BPM. Flávio e Eduardo foragidos em Miami e no Texas sob risco de extradição.'
 ];
 
 let clanLineIdx = 0;
@@ -539,7 +552,7 @@ function updateTerminalProfile() {
 function setupAccessCounter() {
     if (!accessCounter) return;
 
-    let count = Math.floor(Math.random() * 1200) + 5800;
+    let count = Math.floor(Math.random() * 1200) + 6800;
     accessCounter.textContent = count.toLocaleString('pt-BR');
 
     let recent = 0;
@@ -549,7 +562,7 @@ function setupAccessCounter() {
         let delta = Math.floor(Math.random() * 25) - 9;
         if ((h >= 9 && h < 13) || (h >= 18 && h < 23)) delta += Math.floor(Math.random() * 18);
         count += delta;
-        if (count < 4200) count = 4200 + Math.floor(Math.random() * 400);
+        if (count < 4800) count = 4800 + Math.floor(Math.random() * 400);
         accessCounter.textContent = count.toLocaleString('pt-BR');
 
         if (delta > 8 && recentJoins) {
@@ -570,11 +583,11 @@ function setupAccessCounter() {
 function setupShareLinks() {
     const url = window.location.href || 'https://statusdobolsonaro.github.io';
 
-    const waMsg = `🚨 STATUS DOS BOLSONAROS: JAIR NA PAPUDINHA & EDUARDO FORAGIDO NOS EUA (CASO BANCO MASTER)!\n\nJair condenado a 27 anos no 19º BPM, Eduardo no Texas com os R$ 61 mi de Vorcaro, e Flávio, Carlos e Renan no radar. Veja o Destinômetro:\n\n${url}`;
+    const waMsg = `🚨 STATUS DOS BOLSONAROS: JAIR NA PAPUDINHA, FLÁVIO E EDUARDO FORAGIDOS NOS EUA!\n\nJair condenado a 27 anos no 19º BPM, Flávio fugiu de carro pela Argentina, Eduardo no Texas com o Banco Master. Veja o radar com links oficiais do STF e PF:\n\n${url}`;
     const waBtn = document.getElementById('whatsapp-share-button-main');
     if (waBtn) waBtn.href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
 
-    const tweetMsg = `🚨 STATUS DOS BOLSONAROS: Jair cumprindo 27 anos na Papudinha, Eduardo foragido nos EUA no Caso Banco Master, Flávio, Carlos e Renan no radar do STF: ${url}`;
+    const tweetMsg = `🚨 STATUS DOS BOLSONAROS: Jair na Papudinha, Flávio e Eduardo foragidos nos EUA no Caso Banco Master. Fontes oficiais do STF, MP e PF: ${url}`;
     const twBtn = document.getElementById('twitter-share-button');
     if (twBtn) twBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetMsg)}`;
 

@@ -1,22 +1,34 @@
 /* ============================================================
-   STATUS DOS BOLSONAROS — BRUTALIST POP DESIGN SYSTEM
-   Cores saturadas, tipografia display bold, bordas grossas (3px),
-   sombras secas (hard shadows) e estética de choque visual.
+   STATUS DOS BOLSONAROS — PALETA EDITORIAL MANIFESTO / PROTESTO
+   Inspirado em cartazes políticos, manifesto risográfico e editorial vintage:
+   Vermelho Vivo (#c4171d), Preto Puro (#0a0a0a), Creme Papel (#f4ebd9 / #fbf7ee)
+   e Verde Garrafa Profundo (#1b4332).
 ============================================================ */
 :root {
     --black: #0a0a0a;
-    --white: #f5f5f0;
-    --yellow: #f5e600;
-    --pink: #ff2d78;
-    --green: #00e676;
-    --blue: #5b5fff;
-    --orange: #ff6b00;
-    --red: #ff1744;
-    --cyan: #00e5ff;
+    --black-soft: #141414;
+    --black-surface: #1e1e1e;
+    --white: #ffffff;
+    --cream: #f4ebd9;
+    --cream-light: #fbf7ee;
+    --cream-muted: #e6dbcb;
+    --cream-dark: #d8cbb8;
+    --red: #c4171d;
+    --red-dark: #8f0f14;
+    --red-deep: #680a0e;
+    --red-bright: #de2229;
+    --green-dark: #1b4332;
+    --green-accent: #2d6a4f;
     --shadow: 4px 4px 0px var(--black);
-    --shadow-lg: 7px 7px 0px var(--black);
+    --shadow-lg: 6px 6px 0px var(--black);
+    --shadow-red: 4px 4px 0px var(--red);
     --border: 3px solid var(--black);
-    --font-d: 'Anton', Impact, sans-serif;
+    --border-thick: 4px solid var(--black);
+
+    /* TIPOGRAFIA EDITORIAL / MANIFESTO */
+    --font-d: 'Bebas Neue', 'Anton', Impact, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-m: 'Space Mono', monospace;
 }
 
@@ -35,7 +47,7 @@ html {
 body {
     background: var(--black);
     color: var(--black);
-    font-family: var(--font-m);
+    font-family: var(--font-sans);
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -108,7 +120,7 @@ body {
 
 .sp-fill {
     height: 100%;
-    background: #fff;
+    background: var(--cream);
     width: 0%;
     border-radius: 2px;
     transition: width linear;
@@ -137,16 +149,16 @@ body {
 .story-account {
     font-family: var(--font-m);
     font-size: .75rem;
-    color: #fff;
+    color: var(--cream);
     font-weight: 700;
-    letter-spacing: .05em;
+    letter-spacing: .08em;
     text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
 }
 
 .story-time {
     font-family: var(--font-m);
     font-size: .65rem;
-    color: rgba(255, 255, 255, .8);
+    color: rgba(244, 235, 217, .8);
     text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
 }
 
@@ -167,32 +179,34 @@ body {
 }
 
 .slide-kicker {
-    font-family: var(--font-m);
-    font-size: .7rem;
-    letter-spacing: .25em;
+    font-family: var(--font-sans);
+    font-size: .75rem;
+    letter-spacing: .2em;
     text-transform: uppercase;
     padding: .35rem .9rem;
-    background: rgba(255, 255, 255, .2);
-    color: #fff;
+    background: var(--black);
+    color: var(--cream);
+    border: 2px solid var(--cream);
     border-radius: 2px;
     font-weight: 700;
 }
 
 .slide-big {
     font-family: var(--font-d);
-    font-size: clamp(2.8rem, 11vw, 5.2rem);
-    line-height: .95;
-    letter-spacing: -.01em;
-    color: #fff;
+    font-size: clamp(3.2rem, 13vw, 5.8rem);
+    line-height: .92;
+    letter-spacing: .02em;
+    color: var(--cream);
+    text-shadow: 4px 4px 0 var(--black);
 }
 
 .slide-sub {
-    font-family: var(--font-m);
-    font-size: .85rem;
-    color: rgba(255, 255, 255, .9);
-    letter-spacing: .03em;
-    max-width: 360px;
-    line-height: 1.5;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream-light);
+    max-width: 380px;
+    line-height: 1.45;
 }
 
 .slide-checklist {
@@ -206,21 +220,22 @@ body {
 }
 
 .check-item {
-    font-family: var(--font-m);
-    font-size: .8rem;
-    color: #0a0a0a;
-    background: rgba(255, 255, 255, .9);
+    font-family: var(--font-sans);
+    font-size: .82rem;
+    color: var(--black);
+    background: var(--cream-light);
+    border: 2px solid var(--black);
     padding: .45rem .8rem;
-    border-radius: 3px;
+    border-radius: 2px;
     font-weight: 700;
-    box-shadow: 2px 2px 0 rgba(0,0,0,.3);
+    box-shadow: 3px 3px 0 rgba(0,0,0,.4);
 }
 
 .check-final {
-    background: #0a0a0a;
-    color: var(--yellow);
-    font-size: .88rem;
-    border: 2px solid var(--yellow);
+    background: var(--black);
+    color: var(--cream);
+    font-size: .9rem;
+    border: 2px solid var(--cream);
 }
 
 .swipe-hint {
@@ -232,7 +247,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: .3rem;
-    color: rgba(255, 255, 255, .9);
+    color: var(--cream);
     pointer-events: none;
 }
 
@@ -243,9 +258,9 @@ body {
 
 .swipe-label {
     font-family: var(--font-d);
-    font-size: .75rem;
+    font-size: .9rem;
     letter-spacing: .2em;
-    color: rgba(255, 255, 255, .8);
+    color: var(--cream);
 }
 
 @keyframes swipeBounce {
@@ -290,9 +305,9 @@ body {
    TICKER
 ============================================================ */
 .ticker-wrap {
-    background: var(--pink);
-    border-top: var(--border);
-    border-bottom: var(--border);
+    background: var(--black);
+    border-top: var(--border-thick);
+    border-bottom: var(--border-thick);
     overflow: hidden;
     white-space: nowrap;
     padding: .55rem 0;
@@ -303,11 +318,11 @@ body {
 
 .ticker-track {
     display: inline-block;
-    animation: ticker 35s linear infinite;
+    animation: ticker 40s linear infinite;
     font-family: var(--font-d);
-    font-size: .92rem;
+    font-size: 1.15rem;
     letter-spacing: .08em;
-    color: var(--black);
+    color: var(--cream);
 }
 
 @keyframes ticker {
@@ -319,15 +334,15 @@ body {
    SITE WRAPPER
 ============================================================ */
 .site-wrap {
-    max-width: 760px;
+    max-width: 780px;
     margin: 0 auto;
-    background: var(--white);
-    border-left: var(--border);
-    border-right: var(--border);
+    background: var(--cream-light);
+    border-left: var(--border-thick);
+    border-right: var(--border-thick);
 }
 
 /* ============================================================
-   SECTION HEADERS (REUSÁVEIS)
+   SECTION HEADERS
 ============================================================ */
 .section-header {
     display: flex;
@@ -337,52 +352,55 @@ body {
     padding: 1.2rem 1.5rem .9rem;
     border-bottom: var(--border);
     font-family: var(--font-d);
-    font-size: 1.45rem;
-    letter-spacing: .04em;
+    font-size: 1.7rem;
+    letter-spacing: .05em;
     color: var(--black);
-    background: var(--white);
+    background: var(--cream);
     flex-wrap: wrap;
 }
 
 .section-header-sub {
-    font-family: var(--font-m);
-    font-size: .68rem;
-    font-weight: 400;
-    color: #444;
-    letter-spacing: .05em;
+    font-family: var(--font-sans);
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: .08em;
     text-transform: uppercase;
 }
 
 /* ============================================================
-   HERO SECTION
+   HERO SECTION — ESTILO "BAIXARIA ONLINE" (VERMELHO + CREME)
 ============================================================ */
 .hero-section {
-    background: var(--yellow);
-    border-bottom: var(--border);
+    background: var(--red);
+    border-bottom: var(--border-thick);
     position: relative;
+    color: var(--cream);
 }
 
 .hero-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .65rem 1.5rem;
+    padding: .7rem 1.5rem;
     border-bottom: var(--border);
     background: var(--black);
     font-family: var(--font-d);
-    font-size: .9rem;
-    letter-spacing: .06em;
-    color: var(--white);
+    font-size: 1.1rem;
+    letter-spacing: .08em;
+    color: var(--cream);
 }
 
 .hero-nav-badge {
     background: var(--red);
-    color: #fff;
-    padding: .15rem .5rem;
+    color: var(--cream);
+    padding: .2rem .6rem;
+    border: 1px solid var(--cream);
     border-radius: 2px;
-    font-family: var(--font-m);
-    font-size: .65rem;
-    letter-spacing: .1em;
+    font-family: var(--font-sans);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .12em;
     animation: blinkBadge 1.2s infinite;
 }
 
@@ -392,71 +410,74 @@ body {
 }
 
 .hero-nav-right {
-    font-family: var(--font-m);
-    font-size: .65rem;
-    color: #aaa;
+    font-family: var(--font-sans);
+    font-size: .7rem;
+    color: var(--cream-muted);
     letter-spacing: .08em;
+    text-transform: uppercase;
 }
 
 .hero-content {
-    padding: 1.5rem 1.5rem 1.2rem;
+    padding: 2rem 1.5rem 1.5rem;
 }
 
 .hero-kicker {
-    font-family: var(--font-m);
-    font-size: .72rem;
-    letter-spacing: .22em;
+    font-family: var(--font-sans);
+    font-size: .78rem;
+    letter-spacing: .18em;
     text-transform: uppercase;
-    background: var(--blue);
-    color: var(--white);
+    background: var(--black);
+    color: var(--cream);
     display: inline-block;
-    padding: .3rem .8rem;
-    margin-bottom: .8rem;
-    box-shadow: var(--shadow);
+    padding: .35rem .9rem;
+    margin-bottom: .9rem;
+    box-shadow: 3px 3px 0 var(--black-soft);
     font-weight: 700;
+    border: 2px solid var(--cream);
 }
 
 .hero-title {
     font-family: var(--font-d);
-    font-size: clamp(3.2rem, 12vw, 6.5rem);
-    line-height: .92;
-    letter-spacing: -.02em;
-    color: var(--black);
-    text-shadow: 5px 5px 0 var(--pink);
-    margin-bottom: .8rem;
+    font-size: clamp(3.8rem, 15vw, 7.8rem);
+    line-height: .9;
+    letter-spacing: .01em;
+    color: var(--cream);
+    text-shadow: 5px 5px 0 var(--black);
+    margin-bottom: 1rem;
 }
 
 .hero-lead {
-    font-family: var(--font-m);
-    font-size: clamp(.85rem, 2.5vw, 1.05rem);
-    font-weight: 700;
-    line-height: 1.45;
-    color: var(--black);
-    margin-bottom: 1.2rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(1.05rem, 2.7vw, 1.3rem);
+    line-height: 1.5;
+    color: var(--cream-light);
+    margin-bottom: 1.4rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,.4);
 }
 
-/* QUADRO DE ESTATÍSTICAS RÁPIDAS DO CLÃ */
+/* QUADRO DE ESTATÍSTICAS RÁPIDAS */
 .clan-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: .5rem;
+    gap: .6rem;
     background: var(--black);
     border: var(--border);
-    padding: .6rem;
-    box-shadow: var(--shadow);
-    margin-top: .5rem;
+    padding: .7rem;
+    box-shadow: var(--shadow-lg);
+    margin-top: .6rem;
 }
 
 .stat-box {
-    background: var(--white);
+    background: var(--cream);
     border: 2px solid var(--black);
-    padding: .6rem .4rem;
+    padding: .7rem .4rem;
     text-align: center;
 }
 
 .stat-val {
     font-family: var(--font-d);
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     line-height: 1;
     color: var(--black);
 }
@@ -466,30 +487,32 @@ body {
 }
 
 .stat-lbl {
-    font-family: var(--font-m);
-    font-size: .58rem;
-    letter-spacing: .05em;
+    font-family: var(--font-sans);
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .04em;
     text-transform: uppercase;
-    color: #555;
-    margin-top: .25rem;
+    color: #444;
+    margin-top: .3rem;
     line-height: 1.2;
 }
 
 /* ============================================================
-   DESTINÔMETRO / COCKPIT INTERATIVO DO DESTINO
+   DESTINÔMETRO / COCKPIT INTERATIVO
 ============================================================ */
 .destinometro-section {
-    background: #111;
-    border-bottom: var(--border);
-    padding: 1.5rem;
-    color: var(--white);
+    background: var(--black);
+    border-bottom: var(--border-thick);
+    padding: 1.8rem 1.5rem;
+    color: var(--cream);
 }
 
 .destinometro-box {
-    border: 3px solid var(--yellow);
-    background: #1a1a1a;
-    padding: 1.2rem;
+    border: var(--border-thick);
+    background: var(--cream-light);
+    padding: 1.4rem;
     box-shadow: var(--shadow-lg);
+    color: var(--black);
 }
 
 .dest-header {
@@ -497,7 +520,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: .8rem;
-    border-bottom: 2px dashed #444;
+    border-bottom: 2px dashed var(--black);
     padding-bottom: .6rem;
     flex-wrap: wrap;
     gap: .5rem;
@@ -505,27 +528,28 @@ body {
 
 .dest-title {
     font-family: var(--font-d);
-    font-size: 1.4rem;
-    letter-spacing: .05em;
-    color: var(--yellow);
+    font-size: 1.8rem;
+    letter-spacing: .04em;
+    color: var(--black);
 }
 
 .dest-indicator {
     font-family: var(--font-m);
-    font-size: .7rem;
-    background: #000;
-    color: var(--green);
-    padding: .25rem .6rem;
-    border: 1px solid var(--green);
+    font-size: .72rem;
+    background: var(--black);
+    color: var(--cream);
+    padding: .25rem .7rem;
     letter-spacing: .08em;
+    border: 1px solid var(--black);
 }
 
 .dest-desc {
-    font-family: var(--font-m);
-    font-size: .78rem;
-    color: #ccc;
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: .92rem;
+    color: #333;
+    line-height: 1.55;
+    margin-bottom: 1.3rem;
 }
 
 .dest-buttons {
@@ -537,12 +561,12 @@ body {
 
 .dest-btn {
     font-family: var(--font-d);
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     letter-spacing: .05em;
-    padding: .9rem 1rem;
-    border: 3px solid #000;
+    padding: 1rem 1rem;
+    border: var(--border);
     cursor: pointer;
-    box-shadow: 4px 4px 0 #000;
+    box-shadow: 4px 4px 0 var(--black);
     transition: transform .1s, box-shadow .1s, filter .1s;
     text-align: center;
     display: flex;
@@ -554,31 +578,31 @@ body {
 
 .dest-btn:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #000;
+    box-shadow: 6px 6px 0 var(--black);
     filter: brightness(1.08);
 }
 
 .dest-btn:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #000;
+    box-shadow: 2px 2px 0 var(--black);
 }
 
 .dest-btn-sub {
-    font-family: var(--font-m);
-    font-size: .62rem;
-    font-weight: 400;
+    font-family: var(--font-sans);
+    font-size: .68rem;
+    font-weight: 500;
     letter-spacing: .02em;
-    opacity: .9;
+    opacity: .95;
 }
 
 .btn-prison {
     background: var(--red);
-    color: #fff;
+    color: var(--cream);
 }
 
 .btn-escape {
-    background: var(--cyan);
-    color: #000;
+    background: var(--green-dark);
+    color: var(--cream);
 }
 
 .dest-secondary-buttons {
@@ -588,43 +612,43 @@ body {
 
 .dest-btn-small {
     flex: 1;
-    font-family: var(--font-m);
-    font-size: .72rem;
+    font-family: var(--font-sans);
+    font-size: .78rem;
     font-weight: 700;
-    padding: .5rem .8rem;
-    border: 2px solid #555;
-    background: #2a2a2a;
-    color: #fff;
+    padding: .6rem .8rem;
+    border: 2px solid var(--black);
+    background: var(--cream);
+    color: var(--black);
     cursor: pointer;
-    transition: background .15s, border-color .15s;
+    transition: background .15s, color .15s;
     letter-spacing: .04em;
     text-align: center;
 }
 
 .dest-btn-small:hover {
-    background: #3a3a3a;
-    border-color: var(--yellow);
-    color: var(--yellow);
+    background: var(--black);
+    color: var(--cream);
 }
 
 .dest-status-banner {
     margin-top: 1rem;
-    padding: .6rem .8rem;
-    background: #000;
-    border-left: 4px solid var(--green);
+    padding: .7rem .9rem;
+    background: var(--black);
+    border-left: 5px solid var(--red);
     font-family: var(--font-m);
-    font-size: .74rem;
-    color: var(--green);
+    font-size: .76rem;
+    color: var(--cream);
     display: flex;
     align-items: center;
     gap: .5rem;
+    line-height: 1.45;
 }
 
 /* ============================================================
    CLAN FILTER TABS
 ============================================================ */
 .filter-section {
-    background: var(--white);
+    background: var(--cream);
     border-bottom: var(--border);
     padding: .8rem 1.5rem;
     display: flex;
@@ -636,20 +660,20 @@ body {
 
 .filter-label {
     font-family: var(--font-d);
-    font-size: .85rem;
+    font-size: 1.1rem;
     letter-spacing: .06em;
-    color: #666;
+    color: var(--black);
     margin-right: .3rem;
     flex-shrink: 0;
 }
 
 .filter-btn {
-    font-family: var(--font-m);
-    font-size: .72rem;
+    font-family: var(--font-sans);
+    font-size: .78rem;
     font-weight: 700;
-    padding: .4rem .75rem;
+    padding: .45rem .85rem;
     border: 2px solid var(--black);
-    background: var(--white);
+    background: var(--cream-light);
     color: var(--black);
     cursor: pointer;
     box-shadow: 2px 2px 0 var(--black);
@@ -658,12 +682,12 @@ body {
 }
 
 .filter-btn:hover {
-    background: var(--yellow);
+    background: var(--cream-muted);
 }
 
 .filter-btn.active {
-    background: var(--black);
-    color: var(--yellow);
+    background: var(--red);
+    color: var(--cream);
     box-shadow: none;
     transform: translate(2px, 2px);
 }
@@ -672,16 +696,16 @@ body {
    CLAN MEMBER CARDS
 ============================================================ */
 .clan-section {
-    background: #eaeae5;
-    border-bottom: var(--border);
-    padding: 1.5rem;
+    background: var(--cream-muted);
+    border-bottom: var(--border-thick);
+    padding: 1.8rem 1.5rem;
 }
 
 .member-card {
-    background: var(--white);
-    border: var(--border);
+    background: var(--cream-light);
+    border: var(--border-thick);
     box-shadow: var(--shadow-lg);
-    margin-bottom: 2rem;
+    margin-bottom: 2.2rem;
     overflow: hidden;
     transition: transform .2s ease, box-shadow .2s ease;
     position: relative;
@@ -696,7 +720,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .65rem 1rem;
+    padding: .75rem 1.1rem;
     border-bottom: var(--border);
     font-family: var(--font-d);
     letter-spacing: .05em;
@@ -704,24 +728,25 @@ body {
     gap: .4rem;
 }
 
-.card-top-jair { background: var(--yellow); color: var(--black); }
-.card-top-flavio { background: var(--orange); color: var(--white); }
-.card-top-eduardo { background: var(--blue); color: var(--white); }
-.card-top-carlos { background: var(--pink); color: var(--white); }
-.card-top-renan { background: var(--green); color: var(--black); }
+.card-top-jair { background: var(--red); color: var(--cream); }
+.card-top-flavio { background: var(--black); color: var(--cream); }
+.card-top-eduardo { background: var(--red-dark); color: var(--cream); }
+.card-top-carlos { background: var(--black); color: var(--cream); }
+.card-top-renan { background: var(--green-dark); color: var(--cream); }
 
 .card-code {
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     display: flex;
     align-items: center;
     gap: .4rem;
 }
 
 .card-role {
-    font-family: var(--font-m);
-    font-size: .65rem;
-    padding: .15rem .45rem;
-    background: rgba(0,0,0,.2);
+    font-family: var(--font-sans);
+    font-size: .72rem;
+    font-weight: 700;
+    padding: .2rem .55rem;
+    background: rgba(0,0,0,.35);
     border-radius: 2px;
     letter-spacing: .05em;
     text-transform: uppercase;
@@ -729,7 +754,7 @@ body {
 
 .card-body-grid {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 260px 1fr;
     border-bottom: var(--border);
 }
 
@@ -737,9 +762,9 @@ body {
 .card-visual {
     position: relative;
     border-right: var(--border);
-    background: #111;
+    background: var(--black);
     overflow: hidden;
-    min-height: 310px;
+    min-height: 330px;
 }
 
 .member-photo {
@@ -747,11 +772,11 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: contrast(1.1) brightness(.95);
+    filter: contrast(1.15) brightness(.92);
     transition: filter .3s ease;
 }
 
-/* JAIL BARS OVERLAY (ANIMADO QUANDO PRESO) */
+/* JAIL BARS */
 .jail-bars {
     position: absolute;
     inset: 0;
@@ -760,25 +785,25 @@ body {
     transition: opacity .35s cubic-bezier(.4, 0, .2, 1);
     background: repeating-linear-gradient(
         90deg,
-        rgba(15, 15, 15, 0.95) 0px,
-        rgba(15, 15, 15, 0.95) 12px,
-        rgba(60, 60, 60, 0.7) 14px,
-        transparent 16px,
-        transparent 38px
+        rgba(10, 10, 10, 0.96) 0px,
+        rgba(10, 10, 10, 0.96) 13px,
+        rgba(70, 70, 70, 0.75) 15px,
+        transparent 17px,
+        transparent 40px
     );
-    box-shadow: inset 0 0 40px rgba(0,0,0,.9);
+    box-shadow: inset 0 0 45px rgba(0,0,0,.95);
     z-index: 5;
 }
 
-/* FLIGHT / FORAGIDO OVERLAY (ANIMADO QUANDO FUGA) */
+/* FLIGHT OVERLAY */
 .flight-overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
     opacity: 0;
     transition: opacity .35s cubic-bezier(.4, 0, .2, 1);
-    background: linear-gradient(135deg, rgba(0, 229, 255, 0.25) 0%, rgba(255, 23, 68, 0.25) 100%);
-    box-shadow: inset 0 0 30px rgba(0,0,0,.7);
+    background: linear-gradient(135deg, rgba(196, 23, 29, 0.25) 0%, rgba(10, 10, 10, 0.45) 100%);
+    box-shadow: inset 0 0 35px rgba(0,0,0,.8);
     z-index: 5;
     display: flex;
     flex-direction: column;
@@ -787,26 +812,26 @@ body {
 }
 
 .flight-ticket-badge {
-    background: var(--yellow);
-    color: #000;
+    background: var(--cream);
+    color: var(--black);
     font-family: var(--font-d);
-    font-size: .8rem;
-    padding: .3rem .5rem;
-    border: 2px solid #000;
-    box-shadow: 2px 2px 0 #000;
+    font-size: .95rem;
+    padding: .35rem .6rem;
+    border: 2px solid var(--black);
+    box-shadow: 3px 3px 0 var(--black);
     text-align: center;
-    letter-spacing: .05em;
+    letter-spacing: .06em;
 }
 
-/* CARIMBO DINÂMICO */
+/* CARIMBOS */
 .status-stamp {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-14deg) scale(0);
-    padding: .4rem .8rem;
+    padding: .5rem 1rem;
     font-family: var(--font-d);
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     letter-spacing: .08em;
     text-transform: uppercase;
     border: 4px dashed;
@@ -815,45 +840,30 @@ body {
     z-index: 10;
     transition: transform .35s cubic-bezier(.175, .885, .32, 1.275);
     pointer-events: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,.6);
 }
 
 .stamp-arrested {
     color: var(--red);
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--cream-light);
     border-color: var(--red);
 }
 
 .stamp-fugitive {
-    color: #0066cc;
-    background: rgba(255, 255, 255, 0.95);
-    border-color: #0066cc;
+    color: var(--black);
+    background: var(--cream);
+    border-color: var(--black);
 }
 
-/* ESTADOS DINÂMICOS DO CARD */
-.member-card.state-arrested .jail-bars {
-    opacity: 1;
-}
+.member-card.state-arrested .jail-bars { opacity: 1; }
+.member-card.state-arrested .member-photo { filter: grayscale(90%) brightness(.75); }
+.member-card.state-arrested .stamp-arrested { transform: translate(-50%, -50%) rotate(-14deg) scale(1); }
+.member-card.state-fugitive .flight-overlay { opacity: 1; }
+.member-card.state-fugitive .stamp-fugitive { transform: translate(-50%, -50%) rotate(12deg) scale(1); }
 
-.member-card.state-arrested .member-photo {
-    filter: grayscale(80%) brightness(.75);
-}
-
-.member-card.state-arrested .stamp-arrested {
-    transform: translate(-50%, -50%) rotate(-14deg) scale(1);
-}
-
-.member-card.state-fugitive .flight-overlay {
-    opacity: 1;
-}
-
-.member-card.state-fugitive .stamp-fugitive {
-    transform: translate(-50%, -50%) rotate(12deg) scale(1);
-}
-
-/* DETALHES DO MEMBRO */
+/* DETALHES */
 .card-info {
-    padding: 1.2rem;
+    padding: 1.4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -861,34 +871,35 @@ body {
 
 .member-name {
     font-family: var(--font-d);
-    font-size: 1.8rem;
-    line-height: 1;
+    font-size: 2.3rem;
+    line-height: .95;
     letter-spacing: .02em;
     color: var(--black);
-    margin-bottom: .2rem;
+    margin-bottom: .25rem;
 }
 
 .member-alias {
-    font-family: var(--font-m);
-    font-size: .75rem;
-    color: #666;
-    margin-bottom: .8rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: .85rem;
+    color: #555;
+    margin-bottom: .9rem;
 }
 
-/* STATUS ATUAL BADGE */
+/* STATUS BADGE */
 .live-status-pill {
     display: inline-flex;
     align-items: center;
     gap: .4rem;
-    background: #000;
-    color: var(--yellow);
-    font-family: var(--font-m);
-    font-size: .68rem;
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--font-sans);
+    font-size: .74rem;
     font-weight: 700;
-    padding: .35rem .7rem;
+    padding: .4rem .8rem;
     border-radius: 2px;
-    letter-spacing: .05em;
-    margin-bottom: .9rem;
+    letter-spacing: .06em;
+    margin-bottom: 1rem;
     align-self: flex-start;
 }
 
@@ -901,7 +912,7 @@ body {
     animation: blinkBadge .9s infinite;
 }
 
-/* TERMÔMETRO DE RISCO PAPUDA */
+/* TERMÔMETRO */
 .risk-meter-wrap {
     margin-bottom: 1rem;
 }
@@ -909,8 +920,8 @@ body {
 .risk-label-row {
     display: flex;
     justify-content: space-between;
-    font-family: var(--font-m);
-    font-size: .68rem;
+    font-family: var(--font-sans);
+    font-size: .74rem;
     font-weight: 700;
     margin-bottom: .3rem;
     text-transform: uppercase;
@@ -919,61 +930,62 @@ body {
 .risk-percent {
     color: var(--red);
     font-family: var(--font-d);
-    font-size: .95rem;
+    font-size: 1.15rem;
 }
 
 .risk-bar-track {
-    height: 10px;
-    background: #ddd;
+    height: 12px;
+    background: var(--cream-muted);
     border: 2px solid var(--black);
     overflow: hidden;
 }
 
 .risk-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--yellow), var(--orange), var(--red));
+    background: var(--red);
     transition: width .8s ease;
 }
 
-/* DESTINO PROVÁVEL BOX */
+/* PREVISÃO */
 .dest-prediction-box {
-    background: #f0f0ea;
+    background: var(--cream);
     border: 2px solid var(--black);
-    padding: .6rem .8rem;
+    padding: .7rem .9rem;
     margin-bottom: 1rem;
 }
 
 .pred-title {
-    font-family: var(--font-m);
-    font-size: .62rem;
+    font-family: var(--font-sans);
+    font-size: .65rem;
+    font-weight: 700;
     text-transform: uppercase;
-    color: #777;
-    letter-spacing: .05em;
+    color: #666;
+    letter-spacing: .06em;
     margin-bottom: .2rem;
 }
 
 .pred-text {
-    font-family: var(--font-d);
-    font-size: 1.05rem;
-    letter-spacing: .03em;
-    color: var(--black);
-    line-height: 1.15;
-}
-
-/* PÉROLA / CITAÇÃO DO MEMBRO */
-.member-quote {
-    background: #fff;
-    border-left: 4px solid var(--pink);
-    padding: .5rem .75rem;
-    font-family: var(--font-d);
-    font-size: .92rem;
+    font-family: var(--font-serif);
     font-style: italic;
-    color: #222;
-    margin-bottom: 1rem;
-    line-height: 1.25;
+    font-size: 1rem;
+    color: var(--black);
+    line-height: 1.35;
 }
 
-/* BOTÕES DE AÇÃO INDIVIDUAIS */
+/* CITAÇÃO */
+.member-quote {
+    background: var(--cream);
+    border-left: 5px solid var(--red);
+    padding: .6rem .85rem;
+    font-family: var(--font-serif);
+    font-size: .95rem;
+    font-style: italic;
+    color: #1a1a1a;
+    margin-bottom: 1.1rem;
+    line-height: 1.35;
+}
+
+/* BOTÕES DE AÇÃO */
 .member-action-btns {
     display: flex;
     gap: .5rem;
@@ -982,9 +994,9 @@ body {
 .btn-card-action {
     flex: 1;
     font-family: var(--font-d);
-    font-size: .8rem;
+    font-size: 1.05rem;
     letter-spacing: .05em;
-    padding: .45rem .6rem;
+    padding: .55rem .7rem;
     border: 2px solid var(--black);
     cursor: pointer;
     box-shadow: 2px 2px 0 var(--black);
@@ -1004,27 +1016,27 @@ body {
 
 .btn-card-arrest {
     background: var(--red);
-    color: #fff;
+    color: var(--cream);
 }
 
 .btn-card-fugitive {
-    background: var(--cyan);
-    color: #000;
+    background: var(--black);
+    color: var(--cream);
 }
 
-/* SEÇÃO EXPANSÍVEL: O QUE PODE LEVAR PRESO */
+/* SEÇÃO DE CRIMES */
 .card-crimes-section {
-    padding: 1.2rem 1.4rem;
-    background: var(--white);
-    border-top: 2px dashed #ccc;
+    padding: 1.3rem 1.4rem;
+    background: var(--cream-light);
+    border-top: 2px dashed #aaa;
 }
 
 .crimes-accordion-title {
     font-family: var(--font-d);
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     letter-spacing: .04em;
     color: var(--black);
-    margin-bottom: .8rem;
+    margin-bottom: .9rem;
     display: flex;
     align-items: center;
     gap: .5rem;
@@ -1033,19 +1045,15 @@ body {
 .crime-investigation-list {
     display: flex;
     flex-direction: column;
-    gap: .7rem;
+    gap: .75rem;
 }
 
 .crime-inv-item {
-    background: #fbfbf8;
-    border: 2px solid #ddd;
-    border-left: 5px solid var(--black);
-    padding: .65rem .85rem;
+    background: var(--cream);
+    border: 2px solid var(--black);
+    border-left: 5px solid var(--red);
+    padding: .75rem .95rem;
     transition: border-color .15s;
-}
-
-.crime-inv-item:hover {
-    border-color: var(--black);
 }
 
 .crime-inv-header {
@@ -1053,65 +1061,105 @@ body {
     justify-content: space-between;
     align-items: baseline;
     gap: .5rem;
-    margin-bottom: .25rem;
+    margin-bottom: .3rem;
     flex-wrap: wrap;
 }
 
 .crime-inv-name {
-    font-family: var(--font-d);
+    font-family: var(--font-sans);
     font-size: .95rem;
-    letter-spacing: .03em;
+    font-weight: 700;
+    letter-spacing: .02em;
     color: var(--black);
 }
 
 .crime-inv-penalty {
     font-family: var(--font-m);
-    font-size: .65rem;
+    font-size: .7rem;
     color: var(--red);
     font-weight: 700;
 }
 
 .crime-inv-desc {
-    font-family: var(--font-m);
-    font-size: .72rem;
-    color: #444;
-    line-height: 1.55;
+    font-family: var(--font-serif);
+    font-size: .88rem;
+    color: #2b2b2b;
+    line-height: 1.5;
+}
+
+.crime-inv-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .5rem;
+    flex-wrap: wrap;
 }
 
 .crime-inv-tag {
     display: inline-block;
-    font-family: var(--font-m);
-    font-size: .58rem;
-    background: #eaeae5;
-    padding: .15rem .45rem;
-    margin-top: .3rem;
-    color: #333;
+    font-family: var(--font-sans);
+    font-size: .65rem;
+    background: var(--black);
+    color: var(--cream);
+    padding: .22rem .55rem;
     font-weight: 700;
+    letter-spacing: .06em;
+}
+
+.source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    font-family: var(--font-sans);
+    font-size: .68rem;
+    font-weight: 700;
+    color: var(--black);
+    background: var(--cream-light);
+    border: 2px solid var(--black);
+    padding: .22rem .6rem;
+    text-decoration: none;
+    box-shadow: 2px 2px 0 var(--black);
+    transition: transform .1s, background .15s, color .15s;
+    letter-spacing: .02em;
+}
+
+.source-badge:hover {
+    background: var(--red);
+    color: var(--cream);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--black);
 }
 
 /* ============================================================
-   BOLÃO DA PAPUDA / INFOGRÁFICO COMPARATIVO
+   BOLÃO DA PAPUDA
 ============================================================ */
 .bolao-section {
     background: var(--black);
-    border-bottom: var(--border);
-    padding: 1.8rem 1.5rem;
-    color: var(--white);
+    border-bottom: var(--border-thick);
+    padding: 2rem 1.5rem;
+    color: var(--cream);
 }
 
 .bolao-section .section-header {
-    background: var(--yellow);
-    color: var(--black);
-    margin: -1.8rem -1.5rem 1.5rem;
+    background: var(--red);
+    color: var(--cream);
+    margin: -2rem -1.5rem 1.6rem;
     border-top: none;
+    border-bottom: var(--border);
+}
+
+.bolao-section .section-header-sub {
+    color: var(--cream-muted);
 }
 
 .bolao-intro {
-    font-family: var(--font-m);
-    font-size: .8rem;
-    color: #ccc;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream-muted);
     line-height: 1.6;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.3rem;
 }
 
 .bolao-grid {
@@ -1121,81 +1169,80 @@ body {
 }
 
 .bolao-card {
-    background: #181818;
-    border: 2px solid #333;
-    padding: 1rem;
-    box-shadow: 4px 4px 0 rgba(255, 230, 0, 0.2);
+    background: var(--black-surface);
+    border: 2px solid var(--black);
+    padding: 1.1rem;
+    box-shadow: 4px 4px 0 var(--red);
     position: relative;
 }
 
-.bolao-card:hover {
-    border-color: var(--yellow);
-}
-
 .bolao-badge {
-    font-family: var(--font-d);
-    font-size: .75rem;
-    background: var(--yellow);
-    color: var(--black);
-    padding: .2rem .5rem;
+    font-family: var(--font-sans);
+    font-size: .7rem;
+    font-weight: 700;
+    background: var(--red);
+    color: var(--cream);
+    padding: .25rem .55rem;
     display: inline-block;
     margin-bottom: .5rem;
-    letter-spacing: .06em;
+    letter-spacing: .08em;
 }
 
 .bolao-name {
     font-family: var(--font-d);
-    font-size: 1.2rem;
-    color: var(--white);
+    font-size: 1.45rem;
+    color: var(--cream);
     margin-bottom: .4rem;
+    letter-spacing: .03em;
 }
 
 .bolao-prediction {
-    font-family: var(--font-m);
-    font-size: .72rem;
-    color: #bbb;
-    line-height: 1.55;
+    font-family: var(--font-serif);
+    font-size: .85rem;
+    color: #ccc;
+    line-height: 1.5;
     margin-bottom: .6rem;
 }
 
 .bolao-odds {
     font-family: var(--font-m);
-    font-size: .65rem;
-    color: var(--green);
+    font-size: .7rem;
+    color: var(--cream);
     font-weight: 700;
 }
 
 /* ============================================================
-   VOTAÇÃO INTERATIVA DO POVO (ENQUETE)
+   ENQUETE INTERATIVA DO POVO
 ============================================================ */
 .poll-section {
-    background: var(--white);
-    border-bottom: var(--border);
-    padding: 1.8rem 1.5rem;
+    background: var(--cream-light);
+    border-bottom: var(--border-thick);
+    padding: 2rem 1.5rem;
 }
 
 .poll-box {
-    border: var(--border);
-    background: var(--yellow);
-    padding: 1.5rem;
+    border: var(--border-thick);
+    background: var(--cream);
+    padding: 1.6rem;
     box-shadow: var(--shadow-lg);
 }
 
 .poll-kicker {
-    font-family: var(--font-m);
-    font-size: .65rem;
+    font-family: var(--font-sans);
+    font-size: .72rem;
+    font-weight: 700;
     letter-spacing: .2em;
     text-transform: uppercase;
-    color: #333;
+    color: var(--red);
     margin-bottom: .4rem;
 }
 
 .poll-question {
     font-family: var(--font-d);
-    font-size: clamp(1.4rem, 4vw, 2.1rem);
-    line-height: 1.1;
+    font-size: clamp(1.8rem, 5.5vw, 2.8rem);
+    line-height: .95;
     color: var(--black);
-    margin-bottom: .8rem;
+    margin-bottom: .9rem;
     letter-spacing: .02em;
 }
 
@@ -1203,13 +1250,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: .8rem;
-    margin-top: 1rem;
+    margin-top: 1.1rem;
 }
 
 .poll-btn {
     border: var(--border);
-    background: var(--white);
-    padding: .9rem 1.1rem;
+    background: var(--cream-light);
+    padding: 1rem 1.2rem;
     cursor: pointer;
     box-shadow: var(--shadow);
     transition: transform .1s, box-shadow .1s;
@@ -1237,17 +1284,17 @@ body {
 }
 
 .poll-btn-title {
-    font-family: var(--font-d);
-    font-size: 1.05rem;
-    letter-spacing: .04em;
+    font-family: var(--font-sans);
+    font-size: .95rem;
+    font-weight: 700;
     color: var(--black);
 }
 
 .poll-btn-votes {
     font-family: var(--font-m);
-    font-size: .75rem;
+    font-size: .78rem;
     font-weight: 700;
-    color: #222;
+    color: var(--red);
 }
 
 .poll-progress-bg {
@@ -1258,18 +1305,18 @@ body {
     width: 0%;
     z-index: 1;
     transition: width .6s cubic-bezier(.4, 0, .2, 1);
-    opacity: .35;
+    opacity: .25;
 }
 
 .poll-btn-1 .poll-progress-bg { background: var(--red); }
-.poll-btn-2 .poll-progress-bg { background: var(--blue); }
+.poll-btn-2 .poll-progress-bg { background: var(--green-dark); }
 
 .poll-thanks {
-    margin-top: .8rem;
-    font-family: var(--font-m);
-    font-size: .75rem;
-    color: #333;
+    margin-top: .9rem;
+    font-family: var(--font-serif);
     font-style: italic;
+    font-size: .88rem;
+    color: var(--black);
     display: none;
 }
 
@@ -1277,16 +1324,16 @@ body {
    TERMINAL HACKER DE BRASÍLIA
 ============================================================ */
 .terminal-section {
-    background: var(--white);
-    border-bottom: var(--border);
+    background: var(--black);
+    border-bottom: var(--border-thick);
 }
 
 .terminal-header {
     display: flex;
     align-items: center;
     gap: .5rem;
-    padding: .65rem 1.2rem;
-    background: #1a1a1a;
+    padding: .7rem 1.2rem;
+    background: var(--black-surface);
     border-bottom: var(--border);
 }
 
@@ -1295,41 +1342,41 @@ body {
     height: 12px;
     border-radius: 50%;
 }
-.term-dot.red { background: #ff5f57; }
-.term-dot.yellow { background: #febc2e; }
-.term-dot.green { background: #28c840; }
+.term-dot.red { background: var(--red); }
+.term-dot.yellow { background: var(--cream-muted); }
+.term-dot.green { background: var(--green-accent); }
 
 .term-title {
     font-family: var(--font-m);
     font-size: .72rem;
-    color: #aaa;
+    color: var(--cream-muted);
     margin-left: .5rem;
     letter-spacing: .05em;
 }
 
 .terminal-body {
-    background: #111;
-    padding: 1.2rem 1.4rem;
-    min-height: 100px;
+    background: var(--black);
+    padding: 1.3rem 1.5rem;
+    min-height: 105px;
 }
 
 .term-line {
     font-family: var(--font-m);
-    font-size: .85rem;
-    color: var(--green);
+    font-size: .88rem;
+    color: var(--cream);
     line-height: 1.7;
 }
 
 .term-line.dim {
-    color: #666;
+    color: #777;
     margin-bottom: .4rem;
-    font-size: .75rem;
+    font-size: .76rem;
 }
 
 .term-cursor {
     display: inline-block;
-    color: var(--green);
-    font-size: .9rem;
+    color: var(--red);
+    font-size: .95rem;
     animation: blink 1s step-end infinite;
     margin-left: 2px;
 }
@@ -1352,8 +1399,8 @@ body {
 ============================================================ */
 .meme-section {
     background: var(--black);
-    border-bottom: var(--border);
-    padding: 2rem 1.5rem;
+    border-bottom: var(--border-thick);
+    padding: 2.2rem 1.5rem;
     text-align: center;
 }
 
@@ -1361,103 +1408,106 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.2rem;
-    max-width: 600px;
+    max-width: 620px;
     margin: 0 auto;
 }
 
 .meme-card {
     position: relative;
-    border: var(--border);
-    box-shadow: var(--shadow);
-    background: #111;
+    border: var(--border-thick);
+    box-shadow: 5px 5px 0 var(--red);
+    background: var(--black);
 }
 
 .meme-card img {
     width: 100%;
-    height: 220px;
+    height: 230px;
     object-fit: cover;
     display: block;
-    filter: contrast(1.1);
+    filter: contrast(1.15);
 }
 
 .meme-sticker {
     position: absolute;
     font-family: var(--font-d);
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1;
     letter-spacing: .04em;
-    padding: .35rem .6rem;
+    padding: .4rem .7rem;
     box-shadow: var(--shadow);
 }
 
 .sticker-tl {
     top: 8px;
     left: 8px;
-    background: var(--pink);
-    color: var(--white);
+    background: var(--red);
+    color: var(--cream);
     transform: rotate(-5deg);
 }
 
 .sticker-br {
     bottom: 8px;
     right: 8px;
-    background: var(--yellow);
+    background: var(--cream);
     color: var(--black);
     transform: rotate(4deg);
 }
 
 .meme-card-caption {
-    background: var(--green);
+    background: var(--red);
     border-top: var(--border);
     font-family: var(--font-d);
-    font-size: .85rem;
-    letter-spacing: .05em;
-    color: var(--black);
-    padding: .5rem;
+    font-size: 1.05rem;
+    letter-spacing: .06em;
+    color: var(--cream);
+    padding: .6rem;
     text-align: center;
 }
 
 /* ============================================================
-   CONTADOR DE TESTEMUNHAS ONLINE
+   CONTADOR DE TESTEMUNHAS
 ============================================================ */
 .counter-section {
-    background: var(--green);
-    border-bottom: var(--border);
-    padding: 2.2rem 1.5rem;
+    background: var(--red);
+    border-bottom: var(--border-thick);
+    padding: 2.4rem 1.5rem;
     text-align: center;
+    color: var(--cream);
 }
 
 .counter-eyebrow {
-    font-family: var(--font-m);
-    font-size: .65rem;
-    letter-spacing: .3em;
+    font-family: var(--font-sans);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .25em;
     text-transform: uppercase;
-    color: var(--black);
-    opacity: .7;
+    color: var(--cream-light);
+    opacity: .9;
     margin-bottom: .4rem;
 }
 
 .counter-num {
     font-family: var(--font-d);
-    font-size: clamp(4rem, 14vw, 7rem);
+    font-size: clamp(4.5rem, 16vw, 8rem);
     line-height: 1;
-    color: var(--black);
-    letter-spacing: -.02em;
-    text-shadow: 4px 4px 0 rgba(0, 0, 0, .2);
+    color: var(--cream);
+    letter-spacing: .01em;
+    text-shadow: 6px 6px 0 var(--black);
 }
 
 .counter-desc {
-    font-family: var(--font-m);
-    font-size: .8rem;
-    color: var(--black);
-    opacity: .75;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--cream-light);
     margin-top: .4rem;
 }
 
 .counter-spike {
-    font-family: var(--font-d);
+    font-family: var(--font-sans);
     font-size: .95rem;
-    color: var(--black);
+    font-weight: 700;
+    color: var(--cream);
     margin-top: .5rem;
     transition: opacity .5s;
 }
@@ -1466,17 +1516,18 @@ body {
    SHARE BUTTONS
 ============================================================ */
 .share-section {
-    background: var(--white);
-    border-bottom: var(--border);
-    padding: 1.8rem 1.5rem;
+    background: var(--cream-light);
+    border-bottom: var(--border-thick);
+    padding: 2rem 1.5rem;
 }
 
 .share-desc {
-    font-family: var(--font-m);
-    font-size: .82rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 1.2rem;
-    color: #333;
+    margin-bottom: 1.3rem;
+    color: #222;
 }
 
 .share-btns {
@@ -1489,12 +1540,12 @@ body {
     display: inline-flex;
     align-items: center;
     gap: .5rem;
-    padding: .75rem 1.2rem;
+    padding: .85rem 1.2rem;
     font-family: var(--font-d);
-    font-size: .85rem;
+    font-size: 1.15rem;
     letter-spacing: .08em;
     text-decoration: none;
-    color: var(--white);
+    color: var(--cream);
     border: var(--border);
     box-shadow: var(--shadow);
     transition: transform .1s, box-shadow .1s;
@@ -1518,44 +1569,46 @@ body {
     flex-shrink: 0;
 }
 
-.s-whatsapp { background: #1a7a40; }
+.s-whatsapp { background: var(--green-dark); }
 .s-twitter { background: var(--black); }
-.s-telegram { background: #0088cc; }
-.s-facebook { background: #1565c0; }
+.s-telegram { background: var(--red-dark); }
+.s-facebook { background: var(--black-surface); }
 
 /* ============================================================
    AUTOR
 ============================================================ */
 .author-section {
     background: var(--black);
-    padding: 2.2rem 1.5rem;
+    padding: 2.4rem 1.5rem;
 }
 
 .author-box {
-    border: 3px solid var(--yellow);
-    padding: 1.5rem;
-    box-shadow: 6px 6px 0 var(--yellow);
+    border: 3px solid var(--red);
+    padding: 1.6rem;
+    box-shadow: 6px 6px 0 var(--red);
+    background: var(--black-surface);
 }
 
 .author-quote {
-    font-family: var(--font-d);
-    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
-    color: var(--white);
-    line-height: 1.35;
-    letter-spacing: .01em;
-    margin-bottom: 1rem;
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 3.8vw, 1.65rem);
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.4;
+    margin-bottom: 1.1rem;
     position: relative;
     padding-left: 1.2rem;
-    border-left: 4px solid var(--yellow);
+    border-left: 4px solid var(--red);
 }
 
 .author-name {
-    font-family: var(--font-m);
-    font-size: .75rem;
-    color: var(--yellow);
-    letter-spacing: .1em;
+    font-family: var(--font-sans);
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: .08em;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
 }
 
 .author-links {
@@ -1568,27 +1621,27 @@ body {
     display: inline-flex;
     align-items: center;
     gap: .4rem;
-    padding: .5rem .9rem;
-    font-family: var(--font-m);
-    font-size: .7rem;
-    letter-spacing: .08em;
+    padding: .55rem 1rem;
+    font-family: var(--font-sans);
+    font-size: .75rem;
+    letter-spacing: .06em;
     text-decoration: none;
-    color: var(--black);
-    background: var(--yellow);
-    border: var(--border);
-    box-shadow: var(--shadow);
+    color: var(--cream);
+    background: var(--red);
+    border: 2px solid var(--black);
+    box-shadow: 3px 3px 0 var(--black);
     transition: transform .1s, box-shadow .1s;
     font-weight: 700;
 }
 
 .author-link:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--yellow);
+    box-shadow: 5px 5px 0 var(--black);
 }
 
 .author-link:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--yellow);
+    box-shadow: 1px 1px 0 var(--black);
 }
 
 .author-link svg {
@@ -1601,32 +1654,32 @@ body {
 ============================================================ */
 #audio-control-button {
     position: fixed;
-    bottom: 1.2rem;
-    right: 1.2rem;
-    width: 50px;
-    height: 50px;
+    bottom: 1.3rem;
+    right: 1.3rem;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    border: 3px solid var(--yellow);
+    border: 3px solid var(--cream);
     background: var(--black);
-    color: var(--white);
+    color: var(--cream);
     font-size: 1.3rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    box-shadow: 4px 4px 0 var(--yellow);
+    box-shadow: 4px 4px 0 var(--red);
     transition: transform .15s, box-shadow .15s;
 }
 
 #audio-control-button:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--yellow);
+    box-shadow: 6px 6px 0 var(--red);
 }
 
 #audio-control-button:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--yellow);
+    box-shadow: 2px 2px 0 var(--red);
 }
 
 /* ============================================================
@@ -1644,7 +1697,7 @@ body {
     .card-visual {
         border-right: none;
         border-bottom: var(--border);
-        min-height: 260px;
+        min-height: 270px;
     }
 
     .dest-buttons {
