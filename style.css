@@ -708,6 +708,7 @@ body {
 .card-top-flavio { background: var(--orange); color: var(--white); }
 .card-top-eduardo { background: var(--blue); color: var(--white); }
 .card-top-carlos { background: var(--pink); color: var(--white); }
+.card-top-renan { background: var(--green); color: var(--black); }
 
 .card-code {
     font-size: 1.15rem;
